@@ -1,0 +1,329 @@
+<title>OBSSpeaks Product Brief</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Product brief for OBSSpeaks — Visionary Software's third proof of the same method: OBS Studio, the software behind most of the world's livestreams, patched to be fully usable by ear.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#0B0F1E; --ink-2:#0E1426; --panel:#121A2E; --panel-2:#161F38;
+    --line:#212B44; --line-2:#303B58;
+    --text:#ECE8DC; --muted:#9DA6BB; --muted-2:#727C96;
+    --gold:#D9B675; --gold-2:#EAD199;
+    --grad:linear-gradient(100deg,#4FE3F2,#6AA8FF,#B067F9);
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Public Sans',system-ui,-apple-system,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--ink); color:var(--text); font-family:var(--sans); font-size:17.5px; line-height:1.72; -webkit-font-smoothing:antialiased; letter-spacing:.005em}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(22px,5vw,44px)}
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--serif); font-weight:500; line-height:1.12; margin:0; font-optical-sizing:auto; letter-spacing:-.01em; text-wrap:balance}
+  p{margin:0}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); font-weight:500}
+  .lead{font-size:clamp(18px,2.1vw,21px); color:var(--muted); max-width:60ch; line-height:1.68}
+  .lead strong{color:var(--text); font-weight:600}
+  .rule{height:1px; background:var(--line); border:0; margin:0}
+  .rule-grad{height:2px; border:0; background:var(--grad); opacity:.7; border-radius:2px; position:relative; overflow:hidden}
+  .rule-grad::after{content:""; position:absolute; top:0; left:-45%; width:45%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent); animation:sweep 7s ease-in-out infinite}
+  @keyframes sweep{0%{left:-45%} 55%,100%{left:130%}}
+
+  header{position:sticky; top:0; z-index:40; background:rgba(11,15,30,.9); backdrop-filter:blur(14px); border-bottom:1px solid var(--line)}
+  .nav{display:flex; align-items:center; gap:18px; height:64px}
+  .brand{display:flex; align-items:center; gap:11px; text-decoration:none}
+  .brand svg{width:28px; height:28px; flex:none}
+  .brand b{font-family:var(--mono); font-weight:500; font-size:13px; letter-spacing:.2em; text-transform:uppercase}
+  .nav .meta{font-family:var(--mono); font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted-2)}
+  .nav .meta a{color:var(--gold); text-decoration:none; position:relative}
+  .nav .meta a::after{content:""; position:absolute; left:0; bottom:-2px; width:100%; height:1px; background:currentColor; transform:scaleX(0); transform-origin:left; transition:transform .25s ease}
+  .nav .meta a:hover::after{transform:scaleX(1)}
+  @media (max-width:640px){.nav .meta{display:none}}
+
+  .btn{display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-weight:600; font-size:14.5px; letter-spacing:.02em; text-decoration:none; padding:13px 24px; border-radius:2px; border:1px solid transparent; transition:background .2s,color .2s,border-color .2s,transform .18s ease}
+  .btn-primary{background:var(--gold); color:#1a1206}
+  .btn-primary:hover{background:var(--gold-2); transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line-2); color:var(--text)}
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold-2)}
+
+  .cover{padding:clamp(56px,11vh,120px) 0 clamp(48px,7vh,84px)}
+  .cover .eyebrow{display:block; margin-bottom:26px}
+  .cover h1{font-size:clamp(40px,7vw,78px); font-weight:500; letter-spacing:-.025em; max-width:16ch}
+  .cover h1 em{font-style:italic; color:var(--gold-2)}
+  .cover .lead{margin-top:28px; font-size:clamp(19px,2.3vw,23px); max-width:60ch}
+  .cover-meta{display:flex; flex-wrap:wrap; gap:14px 40px; margin-top:40px; padding-top:26px; border-top:1px solid var(--line); font-family:var(--mono); font-size:13px; color:var(--muted)}
+  .cover-meta b{color:var(--text); font-weight:500}
+  .cover-cta{display:flex; flex-wrap:wrap; gap:14px; margin-top:34px}
+
+  section{padding:clamp(52px,8vh,92px) 0}
+  .band{background:var(--ink-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .kicker{display:flex; align-items:baseline; gap:16px; margin-bottom:28px}
+  .kicker .no{font-family:var(--mono); font-size:12px; color:var(--gold); letter-spacing:.16em}
+  .kicker .rule{flex:1; align-self:center}
+  .h-lead{max-width:26ch}
+  h2{font-size:clamp(28px,4.2vw,44px); font-weight:500; letter-spacing:-.018em}
+  .sec-intro{margin-top:18px}
+
+  .points{list-style:none; margin:14px 0 0; padding:0; border-top:1px solid var(--line)}
+  .points li{padding:19px 0; border-bottom:1px solid var(--line); color:var(--muted); font-size:15.5px}
+  .points li b{color:var(--text); font-weight:600; font-family:var(--serif); font-size:17px; display:block; margin-bottom:5px}
+
+  .figs{display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin:32px 0 6px; border:1px solid var(--line); border-radius:3px}
+  .figs .f{padding:28px 24px; border-right:1px solid var(--line)}
+  .figs .f:last-child{border-right:0}
+  .figs .f .num{font-family:var(--mono); font-weight:500; font-size:clamp(28px,4vw,40px); color:var(--gold-2); letter-spacing:-.02em; line-height:1}
+  .figs .f .lab{margin-top:11px; color:var(--muted); font-size:14px; line-height:1.5}
+  @media (max-width:680px){.figs{grid-template-columns:1fr}.figs .f{border-right:0; border-bottom:1px solid var(--line)}.figs .f:last-child{border-bottom:0}}
+
+  .trip{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:6px}
+  @media (max-width:760px){.trip{grid-template-columns:1fr; gap:24px}}
+  .trip .c h3{font-size:19px; font-weight:500; display:flex; align-items:baseline; gap:10px}
+  .trip .c h3 .i{font-family:var(--mono); font-size:12px; color:var(--gold)}
+  .trip .c p{color:var(--muted); margin-top:9px; font-size:15px}
+  .trip .c .hr{height:1px; background:var(--line); margin-top:16px}
+
+  .feats{columns:2; column-gap:44px; margin-top:6px}
+  @media (max-width:640px){.feats{columns:1}}
+  .feats .it{break-inside:avoid; display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--line)}
+  .feats .it .tick{color:var(--gold); font-family:var(--mono); flex:none; line-height:1.6}
+  .feats .it b{font-weight:600; font-size:15.5px}
+  .feats .it span{display:block; color:var(--muted); font-size:14px; margin-top:2px}
+
+  .pquote{border-left:2px solid var(--gold); padding:4px 0 4px 26px; margin:6px 0}
+  .pquote p{font-family:var(--serif); font-style:italic; font-size:clamp(20px,2.7vw,28px); font-weight:400; line-height:1.4; color:var(--text)}
+  .pquote cite{display:block; margin-top:14px; font-style:normal; font-family:var(--mono); font-size:12.5px; letter-spacing:.05em; color:var(--muted)}
+
+  .vlead{border:1px solid var(--line-2); border-radius:3px; overflow:hidden; background:#05070d; margin-top:8px}
+  .vlead video{display:block; width:100%; height:auto}
+  .vcap{display:flex; flex-wrap:wrap; gap:6px 16px; align-items:baseline; margin:14px 0 0}
+  .vcap b{font-family:var(--serif); font-weight:500; font-size:17px} .vcap span{color:var(--muted-2); font-family:var(--mono); font-size:12px}
+
+  .alloc{border-top:1px solid var(--line-2); margin-top:16px}
+  .alloc .r{display:grid; grid-template-columns:14px 1fr 14px; gap:16px; align-items:center; padding:15px 0; border-bottom:1px solid var(--line)}
+  .alloc button.r{width:100%; background:none; border:none; color:inherit; font:inherit; text-align:left; cursor:pointer; transition:background .18s}
+  .alloc button.r:hover{background:rgba(217,182,117,.05)}
+  .alloc .r .sw{width:12px; height:12px; border-radius:2px; background:var(--gold)}
+  .alloc .r .nm{font-weight:600; font-size:15.5px}
+  .alloc .r .nm small{display:block; color:var(--muted-2); font-weight:400; font-size:12.5px; margin-top:2px}
+  .alloc .r .cv{justify-self:end; color:var(--muted-2); font-size:11px; transition:transform .22s,color .2s}
+  .alloc-item.open .cv{transform:rotate(90deg); color:var(--gold)}
+  .r-exp{color:var(--muted); font-size:14.5px; line-height:1.55; padding:12px 0 18px 30px; border-bottom:1px solid var(--line)}
+  .r-exp ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:7px}
+  .r-exp ul li{display:flex; gap:10px; color:var(--muted); font-size:13.5px; line-height:1.5}
+  .r-exp ul li::before{content:"—"; color:var(--gold); flex:none}
+  .r-exp ul li b{color:var(--text); font-weight:600}
+
+  .stage{border:1px solid var(--gold); border-radius:3px; padding:clamp(22px,3.4vw,34px); margin-top:36px; background:linear-gradient(180deg,rgba(217,182,117,.06),transparent)}
+  .stage .eyebrow{color:var(--gold)}
+  .stage h3{font-family:var(--serif); font-weight:500; font-size:clamp(21px,2.9vw,28px); margin:11px 0 0; letter-spacing:-.01em}
+  .stage p{color:var(--muted); margin-top:13px; max-width:68ch; font-size:15.5px}
+  .stage .igrid{display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:24px; border-top:1px solid var(--line)}
+  .stage .g{padding:17px 15px 5px; border-right:1px solid var(--line)}
+  .stage .g:last-child{border-right:0}
+  .stage .g b{display:block; font-family:var(--mono); font-weight:500; font-size:clamp(18px,2.3vw,24px); color:var(--gold-2); letter-spacing:-.01em; font-variant-numeric:tabular-nums}
+  .stage .g span{display:block; color:var(--muted); font-size:12.5px; margin-top:6px; line-height:1.45}
+  @media (max-width:680px){.stage .igrid{grid-template-columns:1fr 1fr}.stage .g{border-bottom:1px solid var(--line)}.stage .g:nth-child(2){border-right:0}}
+
+  .invite{padding:clamp(64px,11vh,120px) 0}
+  .invite .split2{display:grid; grid-template-columns:1.3fr .7fr; gap:44px; align-items:start}
+  @media (max-width:760px){.invite .split2{grid-template-columns:1fr; gap:30px}}
+  .invite h2{font-size:clamp(30px,4.6vw,44px); max-width:16ch}
+  .invite h2 em{font-style:italic; color:var(--gold-2)}
+  .invite .lead{margin-top:18px; max-width:52ch}
+  .contact-card{border:1px solid var(--line-2); border-radius:3px; padding:26px}
+  .contact-card .eyebrow{display:block; margin-bottom:14px}
+  .contact-card a.btn{width:100%; justify-content:center; margin-bottom:14px}
+  .contact-card .row{display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-top:1px solid var(--line); font-family:var(--mono); font-size:12.5px}
+  .contact-card .row:first-of-type{border-top:none; margin-top:4px}
+  .contact-card .row span:first-child{color:var(--muted-2)}
+  .contact-card .row a{color:var(--gold); text-decoration:none}
+  .motto{font-family:var(--serif); font-style:italic; color:var(--muted); margin-top:26px; font-size:16px}
+
+  footer{border-top:1px solid var(--line); padding:28px 0; color:var(--muted-2); font-size:12.5px; font-family:var(--mono); letter-spacing:.03em}
+  .footrow{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px}
+
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){ .rule-grad::after{display:none} }
+</style>
+
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="hl" x1="10" y1="60" x2="110" y2="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4FE3F2"/><stop offset=".5" stop-color="#6AA8FF"/><stop offset="1" stop-color="#B067F9"/></linearGradient><radialGradient id="hi" cx=".42" cy=".4" r=".75"><stop offset="0" stop-color="#7BECFB"/><stop offset=".45" stop-color="#6AA8FF"/><stop offset="1" stop-color="#B067F9"/></radialGradient><radialGradient id="hg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE39A"/><stop offset="1" stop-color="#D9B675"/></radialGradient></defs><path d="M8 60 C 30 28, 90 28, 112 60 C 90 92, 30 92, 8 60 Z" stroke="url(#hl)" stroke-width="5" stroke-linejoin="round" fill="none"/><circle cx="60" cy="60" r="23" fill="url(#hi)"/><circle cx="60" cy="60" r="9.5" fill="#0B0F1E"/><path d="M52 49 L54 55.5 L60.5 57.5 L54 59.5 L52 66 L50 59.5 L43.5 57.5 L50 55.5 Z" fill="url(#hg)"/></svg>
+        <b>Visionary Software</b>
+      </a>
+      <span class="meta" style="margin-left:auto">Product Brief · <a href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/raise.html">Full investor brief ↑</a></span>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<main>
+
+<section class="cover">
+  <div class="wrap">
+    <span class="eyebrow">Visionary Software · Product Brief</span>
+    <h1>OBS Studio, finally usable <em>by ear.</em></h1>
+    <p class="lead">OBSSpeaks patches OBS Studio itself — the free, open-source software behind most of the world's livestreams and broadcasts — so a blind creator can run it entirely by ear. It's Visionary Software's third proof of the same method that built AccessBridge, and it's entering its first tester cohort now.</p>
+    <div class="cover-meta">
+      <span>Product&nbsp;&nbsp;<b>OBSSpeaks</b></span>
+      <span>Platform&nbsp;&nbsp;<b>OBS Studio, macOS</b></span>
+      <span>Founder&nbsp;&nbsp;<b>Leroy Abraham Junior</b></span>
+      <span>Status&nbsp;&nbsp;<b>Entering testing</b></span>
+    </div>
+    <div class="cover-cta">
+      <a class="btn btn-primary" href="#gap">See the gap</a>
+      <a class="btn btn-ghost" href="#watch">Watch it work</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule-grad"></div>
+
+<!-- 01 THE GAP -->
+<section id="gap">
+  <div class="wrap">
+    <div class="kicker"><span class="no">01</span><span class="eyebrow">The gap</span><hr class="rule"></div>
+    <div>
+      <h2 class="h-lead">OBS was never built to be heard.</h2>
+      <p class="lead sec-intro">That isn't an impression — it's the documented state of the software today.</p>
+    </div>
+    <ul class="points">
+      <li><b>It isn't listed in AppleVis.</b>AppleVis is the directory blind Mac users search first for accessible software. OBS Studio — one of the most-used pieces of software on the internet — isn't on it.</li>
+      <li><b>Its own community says to switch to Windows.</b>Blind Mac users asking for help on OBS's own forums are routinely told there's no good answer on the Mac — go use Windows instead.</li>
+      <li><b>The maintainers have said plainly nobody is positioned to fix it.</b>OBS's own accessibility discussion thread (GitHub Discussion #6192) states outright that the project has no VPAT or accessibility report, and no one on the team has the skills to pursue one. The only macOS-targeted accessibility change ever merged upstream, in the project's whole history, is a single one-line combo-box fix.</li>
+      <li><b>The bugs are filed, and stay open for years.</b>Issue #3524 documented a full accessibility regression; issue #3627 catalogued blind users unable to start a stream or recording at all; issue #11400, opened in October 2024, is still open today — screen readers can't even read the name of a filter in its own list.</li>
+      <li><b>A community guide for blind OBS users gives up outright.</b>On positioning a source on the canvas — one of the most basic things a streamer does — it says: "There is no good way around it."</li>
+      <li><b>Muting didn't even mute.</b>OBS uses a checkable button for its mute controls; a screen reader activates it by toggling, which changes the button's appearance without ever firing the click. The audio kept playing. Open upstream since 2022.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 02 WHAT OBSSPEAKS CHANGES -->
+<section id="fix" class="band">
+  <div class="wrap">
+    <div class="kicker"><span class="no">02</span><span class="eyebrow">What OBSSpeaks changes</span><hr class="rule"></div>
+    <div>
+      <h2 class="h-lead">Fixed at the source, not bolted on.</h2>
+      <p class="lead sec-intro">macOS doesn't let one application add accessibility labels to another — a companion tool can read OBS and drive it, but it can never make OBS itself readable. The only route is changing OBS at the source and rebuilding it. That's what OBSSpeaks is: a clean, rebasable patch series on top of stock OBS, not a fork.</p>
+    </div>
+    <div class="figs">
+      <div class="f"><div class="num">35</div><div class="lab">Patches rebased clean onto stock OBS 32 — roughly 11,800 lines changed at the source.</div></div>
+      <div class="f"><div class="num">7</div><div class="lab">Console tabs — Scenes, Sources, Audio, Output, Transitions, Support, Manage — full keyboard coverage.</div></div>
+      <div class="f"><div class="num">15</div><div class="lab">Narrated masterclass chapters, recorded before the first outside tester ever opens the app.</div></div>
+    </div>
+    <div class="trip" style="margin-top:40px">
+      <div class="c"><h3><span class="i">i.</span> Every dialog, named</h3><p>OBS builds its settings UI for every plugin and source type from one shared file — fixed once, at the root, and the fix reaches all of it: source, filter, encoder, and output dialogs across roughly 95 plugin files.</p><div class="hr"></div></div>
+      <div class="c"><h3><span class="i">ii.</span> What sight gave for free, spoken</h3><p>Exact canvas position and overlaps, a frame's brightness and color-key spill, WCAG-style contrast against whatever a source sits on, even whether a camera has a face in frame — read on request, not guessed.</p><div class="hr"></div></div>
+      <div class="c"><h3><span class="i">iii.</span> Stays fixed on every OBS release</h3><p>One command checks for a new OBS version, replays every patch onto it, rebuilds, and verifies — it refuses to install if a patch stopped applying or the accessibility marker is missing, rather than ship a silently degraded build.</p><div class="hr"></div></div>
+    </div>
+    <div id="watch" class="vlead" style="margin-top:40px">
+      <video controls preload="none" playsinline poster="data:image/jpeg;base64,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">
+        <source src="https://jbreeze803-jpg.github.io/visionary-promo-media/Product-OBSSpeaks.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="vcap"><b>OBSSpeaks, in motion</b><span>Product film · the gap, and the fix, in under a minute</span><a href="https://jbreeze803-jpg.github.io/visionary-promo-media/Product-OBSSpeaks.mp4" style="margin-left:auto;color:var(--gold-2);font-family:var(--mono);font-size:12px;text-decoration:none" target="_blank" rel="noopener">Open the film ↗</a></div>
+
+    <p class="eyebrow" style="margin-top:44px">Fixed, with the receipts</p>
+    <div class="alloc">
+      <div class="alloc-item">
+        <button class="r" type="button" aria-expanded="false" aria-controls="r1"><span class="sw"></span><span class="nm">Mute that actually mutes<small>The bug open upstream since 2022, fixed</small></span><span class="cv" aria-hidden="true">▸</span></button>
+        <div class="r-exp" id="r1" hidden><ul><li>Docked panels restored — Scenes, Sources, Audio Mixer, Transitions — named and bounded again.</li><li>Keyboard-reachable context menus — scale, blend, deinterlace, group, projector, screenshot — all mouse-only before.</li></ul></div>
+      </div>
+      <div class="alloc-item">
+        <button class="r" type="button" aria-expanded="false" aria-controls="r2"><span class="sw"></span><span class="nm">The Stats window, live<small>FPS, dropped frames, CPU, memory, disk, bitrate</small></span><span class="cv" aria-hidden="true">▸</span></button>
+        <div class="r-exp" id="r2" hidden><ul><li>Spoken as they update — the core stream-health readout that had zero screen-reader path before.</li><li>Add Source, fully in-console: type list, nested scenes, reusing an existing source, no trip to the main window.</li></ul></div>
+      </div>
+      <div class="alloc-item">
+        <button class="r" type="button" aria-expanded="false" aria-controls="r3"><span class="sw"></span><span class="nm">Layout without sight<small>Exact position, overlap, and picture quality on request</small></span><span class="cv" aria-hidden="true">▸</span></button>
+        <div class="r-exp" id="r3" hidden><ul><li>Reset, fit, stretch, flip, center, rotate — plus exact position and overlap on request.</li><li>A frame's brightness, black/blown-out detection, and color-key spill, read on request.</li></ul></div>
+      </div>
+    </div>
+    <p class="eyebrow" style="margin-top:28px">Also shipped</p>
+    <div class="feats" style="margin-top:14px">
+      <div class="it"><span class="tick">—</span><div><b>Auto Scene Switcher &amp; Captions</b><span>Rule list, status, and every field named and readable.</span></div></div>
+      <div class="it"><span class="tick">—</span><div><b>Profiles &amp; Scene Collections</b><span>New, duplicate, rename, remove, import, export, remigrate.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 WHERE IT STANDS -->
+<section id="stage">
+  <div class="wrap">
+    <div class="kicker"><span class="no">03</span><span class="eyebrow">Where it stands</span><hr class="rule"></div>
+    <div>
+      <h2 class="h-lead">Feature-complete. Testers next.</h2>
+      <p class="lead sec-intro">OBSSpeaks hasn't shipped to outside testers yet. What it has already done is skip the part every new product struggles with: it runs the exact tester operations AccessBridge proved in production, built before the first outside tester ever opens it.</p>
+    </div>
+    <div class="stage">
+      <span class="eyebrow">Already built, ahead of the first tester</span>
+      <h3>Not a demo waiting for infrastructure — the infrastructure is proven already.</h3>
+      <p>The same playbook AccessBridge already runs: an in-app health beacon, an automatic updater that verifies before it installs, a one-keystroke feedback channel straight to the founder, and a full narrated masterclass — all built and working before a single outside tester has the app.</p>
+      <div class="igrid">
+        <div class="g"><b>35</b><span>patches, building clean on stock OBS</span></div>
+        <div class="g"><b>15</b><span>masterclass chapters, already recorded</span></div>
+        <div class="g"><b>7</b><span>console tabs, full keyboard coverage</span></div>
+        <div class="g"><b>3rd</b><span>professional application proven by the same method</span></div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:32px; max-width:72ch">Still open, and said plainly rather than hidden: an accessible peer for the level meter and preview canvas <em>contents</em> (the frame itself, not its metadata), and full end-to-end verification by ear across every remaining corner — this project has learned the hard way that building correctly and sounding correct by VoiceOver are not automatically the same thing, so nothing here is called done until it's heard.</p>
+  </div>
+</section>
+
+<!-- 04 WHY IT MATTERS FOR THE COMPANY -->
+<section class="band">
+  <div class="wrap">
+    <div class="kicker"><span class="no">04</span><span class="eyebrow">Why this matters for Visionary</span><hr class="rule"></div>
+    <div class="pquote">
+      <p>AccessBridge proved the model once. OBSSpeaks proves it a second time, on a completely different professional application, by the same founder, using the same method — before anyone asked for it.</p>
+    </div>
+    <p class="lead" style="margin-top:28px; max-width:72ch">That's the whole thesis an investor is being asked to back: not one clever app, but a repeatable way of opening locked doors in professional software — DJ decks, and now broadcast software, with a DAW already in build behind them. Three for three.</p>
+  </div>
+</section>
+
+<!-- 05 CLOSE -->
+<section class="invite">
+  <div class="wrap">
+    <div class="split2">
+      <div>
+        <span class="eyebrow">Part of the same raise</span>
+        <h2 style="margin-top:14px">One company. <em>Three doors, and counting.</em></h2>
+        <p class="lead">OBSSpeaks isn't a separate ask — it's evidence for the one Visionary Software is already making. The full investor brief has the company, the numbers, and the raise.</p>
+        <p class="motto">From me, to the world.</p>
+      </div>
+      <div class="contact-card">
+        <span class="eyebrow">Get in touch</span>
+        <a class="btn btn-primary" href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/raise.html">Read the full investor brief →</a>
+        <a class="btn btn-ghost" href="mailto:breezywonderofficial@gmail.com?subject=Visionary%20Software%20%E2%80%94%20OBSSpeaks">Start a conversation</a>
+        <div class="row"><span>Founder</span><span>Leroy Abraham Junior</span></div>
+        <div class="row"><span>Email</span><a href="mailto:breezywonderofficial@gmail.com">breezywonderofficial@gmail.com</a></div>
+        <div class="row"><span>Instagram</span><a href="https://instagram.com/breezywonderofficial">@breezywonderofficial</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footrow">
+    <span>Visionary Software LLC — building for the world, starting with the blind</span>
+    <span>Product brief</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('button[aria-controls]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var wrap = btn.parentElement, panel = document.getElementById(btn.getAttribute('aria-controls'));
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      wrap.classList.toggle('open', !open);
+      if(panel) panel.hidden = open;
+    });
+  });
+})();
+</script>

@@ -1,0 +1,489 @@
+<title>Visionary Software Investor Brief</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Investor brief for Visionary Software LLC — three accessibility-first professional software products, one repeatable method, and the raise to ship all three and build the company sustainably.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#0B0F1E; --ink-2:#0E1426; --panel:#121A2E; --panel-2:#161F38;
+    --line:#212B44; --line-2:#303B58;
+    --text:#ECE8DC; --muted:#9DA6BB; --muted-2:#727C96;
+    --gold:#D9B675; --gold-2:#EAD199;
+    --grad:linear-gradient(100deg,#4FE3F2,#6AA8FF,#B067F9);
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Public Sans',system-ui,-apple-system,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--ink); color:var(--text); font-family:var(--sans); font-size:17.5px; line-height:1.72; -webkit-font-smoothing:antialiased; letter-spacing:.005em}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(22px,5vw,44px)}
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--serif); font-weight:500; line-height:1.12; margin:0; font-optical-sizing:auto; letter-spacing:-.01em; text-wrap:balance}
+  p{margin:0}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); font-weight:500}
+  .lead{font-size:clamp(18px,2.1vw,21px); color:var(--muted); max-width:60ch; line-height:1.68}
+  .lead strong{color:var(--text); font-weight:600}
+  .rule{height:1px; background:var(--line); border:0; margin:0}
+  .rule-grad{height:2px; border:0; background:var(--grad); opacity:.7; border-radius:2px; position:relative; overflow:hidden}
+  .rule-grad::after{content:""; position:absolute; top:0; left:-45%; width:45%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent); animation:sweep 7s ease-in-out infinite}
+  @keyframes sweep{0%{left:-45%} 55%,100%{left:130%}}
+
+  header{position:sticky; top:0; z-index:40; background:rgba(11,15,30,.9); backdrop-filter:blur(14px); border-bottom:1px solid var(--line)}
+  .nav{display:flex; align-items:center; gap:18px; height:64px}
+  .brand{display:flex; align-items:center; gap:11px; text-decoration:none}
+  .brand svg{width:28px; height:28px; flex:none}
+  .brand b{font-family:var(--mono); font-weight:500; font-size:13px; letter-spacing:.2em; text-transform:uppercase}
+  .nav .meta{font-family:var(--mono); font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted-2)}
+  .nav .meta a{color:var(--gold); text-decoration:none; position:relative}
+  .nav .meta a::after{content:""; position:absolute; left:0; bottom:-2px; width:100%; height:1px; background:currentColor; transform:scaleX(0); transform-origin:left; transition:transform .25s ease}
+  .nav .meta a:hover::after{transform:scaleX(1)}
+  @media (max-width:640px){.nav .meta{display:none}}
+
+  .btn{display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-weight:600; font-size:14.5px; letter-spacing:.02em; text-decoration:none; padding:13px 24px; border-radius:2px; border:1px solid transparent; transition:background .2s,color .2s,border-color .2s,transform .18s ease}
+  .btn-primary{background:var(--gold); color:#1a1206}
+  .btn-primary:hover{background:var(--gold-2); transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line-2); color:var(--text)}
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold-2)}
+
+  .cover{padding:clamp(56px,11vh,120px) 0 clamp(48px,7vh,84px)}
+  .cover .eyebrow{display:block; margin-bottom:26px}
+  .cover h1{font-size:clamp(42px,7.6vw,86px); font-weight:500; letter-spacing:-.025em; max-width:15ch}
+  .cover h1 em{font-style:italic; color:var(--gold-2)}
+  .cover .lead{margin-top:28px; font-size:clamp(19px,2.3vw,23px); max-width:60ch}
+  .cover-meta{display:flex; flex-wrap:wrap; gap:14px 40px; margin-top:40px; padding-top:26px; border-top:1px solid var(--line); font-family:var(--mono); font-size:13px; color:var(--muted)}
+  .cover-meta b{color:var(--text); font-weight:500}
+  .cover-cta{display:flex; flex-wrap:wrap; gap:14px; margin-top:34px}
+
+  section{padding:clamp(52px,8vh,92px) 0}
+  .band{background:var(--ink-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .kicker{display:flex; align-items:baseline; gap:16px; margin-bottom:28px}
+  .kicker .no{font-family:var(--mono); font-size:12px; color:var(--gold); letter-spacing:.16em}
+  .kicker .rule{flex:1; align-self:center}
+  .h-lead{max-width:24ch}
+  h2{font-size:clamp(28px,4.2vw,44px); font-weight:500; letter-spacing:-.018em}
+  .sec-intro{margin-top:18px}
+
+  .model{margin-top:10px; border-top:1px solid var(--line)}
+  .model .row{display:grid; grid-template-columns:52px 1fr; gap:22px; padding:24px 0; border-bottom:1px solid var(--line); align-items:baseline}
+  .model .row .n{font-family:var(--mono); font-size:13px; color:var(--gold); letter-spacing:.1em}
+  .model .row h3{font-size:21px; font-weight:500}
+  .model .row p{color:var(--muted); margin-top:7px; max-width:66ch; font-size:15.5px}
+  @media (max-width:560px){.model .row{grid-template-columns:1fr; gap:5px}}
+
+  .figs{display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin:32px 0 6px; border:1px solid var(--line); border-radius:3px}
+  .figs .f{padding:28px 24px; border-right:1px solid var(--line)}
+  .figs .f:last-child{border-right:0}
+  .figs .f .num{font-family:var(--mono); font-weight:500; font-size:clamp(28px,4vw,40px); color:var(--gold-2); letter-spacing:-.02em; line-height:1}
+  .figs .f .lab{margin-top:11px; color:var(--muted); font-size:14px; line-height:1.5}
+  @media (max-width:680px){.figs{grid-template-columns:1fr}.figs .f{border-right:0; border-bottom:1px solid var(--line)}.figs .f:last-child{border-bottom:0}}
+
+  .products{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:8px}
+  @media (max-width:820px){.products{grid-template-columns:1fr}}
+  .pcard{border:1px solid var(--line-2); border-radius:3px; padding:26px; display:flex; flex-direction:column; gap:14px; text-decoration:none; transition:border-color .2s,transform .2s}
+  .pcard:hover{border-color:var(--gold); transform:translateY(-2px)}
+  .pcard .tag{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  .pcard h3{font-size:22px; font-weight:500; margin-top:2px}
+  .pcard p{color:var(--muted); font-size:14.5px; line-height:1.6; flex:1}
+  .pcard .go{font-family:var(--mono); font-size:12.5px; color:var(--gold-2); letter-spacing:.04em}
+  .pcard .stat{font-family:var(--mono); font-size:12px; color:var(--muted-2); padding-top:12px; border-top:1px solid var(--line)}
+
+  .trip{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:6px}
+  @media (max-width:760px){.trip{grid-template-columns:1fr; gap:24px}}
+  .trip .c h3{font-size:19px; font-weight:500; display:flex; align-items:baseline; gap:10px}
+  .trip .c h3 .i{font-family:var(--mono); font-size:12px; color:var(--gold)}
+  .trip .c p{color:var(--muted); margin-top:9px; font-size:15px}
+  .trip .c .hr{height:1px; background:var(--line); margin-top:16px}
+
+  .pquote{border-left:2px solid var(--gold); padding:4px 0 4px 26px; margin:6px 0}
+  .pquote p{font-family:var(--serif); font-style:italic; font-size:clamp(20px,2.7vw,28px); font-weight:400; line-height:1.4; color:var(--text)}
+  .pquote cite{display:block; margin-top:14px; font-style:normal; font-family:var(--mono); font-size:12.5px; letter-spacing:.05em; color:var(--muted)}
+
+  .vlead{border:1px solid var(--line-2); border-radius:3px; overflow:hidden; background:#05070d; margin-top:8px}
+  .vlead video{display:block; width:100%; height:auto}
+  .vcap{display:flex; flex-wrap:wrap; gap:6px 16px; align-items:baseline; margin:14px 0 0}
+  .vcap b{font-family:var(--serif); font-weight:500; font-size:17px} .vcap span{color:var(--muted-2); font-family:var(--mono); font-size:12px}
+
+  .split{display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:start}
+  @media (max-width:820px){.split{grid-template-columns:1fr; gap:28px}}
+  .points{list-style:none; margin:0; padding:0; border-top:1px solid var(--line)}
+  .points li{padding:19px 0; border-bottom:1px solid var(--line); color:var(--muted); font-size:15.5px}
+  .points li b{color:var(--text); font-weight:600; font-family:var(--serif); font-size:17px; display:block; margin-bottom:5px}
+  .everyone{background:var(--panel); border:1px solid var(--line-2); border-radius:3px; padding:28px}
+  .everyone h3{font-size:19px; font-weight:500; color:var(--gold-2)}
+  .everyone p{color:var(--muted); margin-top:11px; font-size:15px}
+  .everyone p + p{margin-top:14px}
+
+  .raise-fig{font-family:var(--mono); font-weight:500; font-size:clamp(48px,9vw,92px); color:var(--gold-2); line-height:.95; letter-spacing:-.03em}
+  .raise-sub{font-family:var(--mono); font-size:13px; color:var(--muted); letter-spacing:.08em; margin-top:10px}
+  .stack{display:flex; height:10px; border-radius:2px; overflow:hidden; margin:32px 0 24px; border:1px solid var(--line)}
+  .stack i{display:block; height:100%}
+  .alloc{border-top:1px solid var(--line-2)}
+  .alloc .r{display:grid; grid-template-columns:14px 1fr auto auto 14px; gap:16px; align-items:center; padding:15px 0; border-bottom:1px solid var(--line)}
+  .alloc button.r{width:100%; background:none; border:none; color:inherit; font:inherit; text-align:left; cursor:pointer; transition:background .18s}
+  .alloc button.r:hover{background:rgba(217,182,117,.05)}
+  .alloc .r .sw{width:12px; height:12px; border-radius:2px}
+  .alloc .r .nm{font-weight:600; font-size:15.5px}
+  .alloc .r .nm small{display:block; color:var(--muted-2); font-weight:400; font-size:12.5px; margin-top:2px}
+  .alloc .r .amt{font-family:var(--mono); font-size:15px; text-align:right; min-width:82px; font-variant-numeric:tabular-nums}
+  .alloc .r .pct{font-family:var(--mono); font-size:13px; color:var(--muted-2); text-align:right; min-width:44px; font-variant-numeric:tabular-nums}
+  .alloc .r .cv{justify-self:end; color:var(--muted-2); font-size:11px; transition:transform .22s,color .2s}
+  .alloc-item.open .cv{transform:rotate(90deg); color:var(--gold)}
+  .r-exp{color:var(--muted); font-size:14.5px; line-height:1.55; padding:12px 0 18px 30px; border-bottom:1px solid var(--line)}
+  .r-exp .sum{display:block}
+  .r-exp ul{list-style:none; margin:12px 0 0; padding:0; display:flex; flex-direction:column; gap:7px}
+  .r-exp ul li{display:flex; gap:10px; color:var(--muted); font-size:13.5px; line-height:1.5}
+  .r-exp ul li::before{content:"—"; color:var(--gold); flex:none}
+  .r-exp ul li b{color:var(--text); font-weight:600}
+  .alloc .r.tot{border-bottom:0; padding-top:17px}
+  .alloc .r.tot .nm{font-family:var(--serif); font-size:17px; font-weight:500}
+  .alloc .r.tot .amt{color:var(--gold-2)}
+
+  .invested{border:1px solid var(--gold); border-radius:3px; padding:clamp(22px,3.4vw,34px); margin:0 0 40px; background:linear-gradient(180deg,rgba(217,182,117,.06),transparent)}
+  .invested .eyebrow{color:var(--gold)}
+  .invested h3{font-family:var(--serif); font-weight:500; font-size:clamp(21px,2.9vw,30px); margin:11px 0 0; letter-spacing:-.01em}
+  .invested p{color:var(--muted); margin-top:13px; max-width:68ch; font-size:15.5px}
+  .invested p b{color:var(--text); font-weight:600}
+  .invested .igrid{display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:24px; border-top:1px solid var(--line)}
+  .invested .g{padding:17px 15px 5px; border-right:1px solid var(--line)}
+  .invested .g:last-child{border-right:0}
+  .invested .g b{display:block; font-family:var(--mono); font-weight:500; font-size:clamp(18px,2.3vw,24px); color:var(--gold-2); letter-spacing:-.01em; font-variant-numeric:tabular-nums}
+  .invested .g span{display:block; color:var(--muted); font-size:12.5px; margin-top:6px; line-height:1.45}
+  @media (max-width:680px){.invested .igrid{grid-template-columns:1fr 1fr}.invested .g{border-bottom:1px solid var(--line)}.invested .g:nth-child(2){border-right:0}}
+
+  .delivers{display:grid; grid-template-columns:repeat(2,1fr); gap:0; margin-top:36px; border:1px solid var(--line); border-radius:3px}
+  .delivers .d{padding:22px 24px; border-right:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .delivers .d:nth-child(2n){border-right:0}
+  .delivers .d:nth-last-child(-n+2){border-bottom:0}
+  .delivers .d b{font-family:var(--serif); font-weight:500; font-size:16.5px; display:block}
+  .delivers .d span{color:var(--muted); font-size:14.5px; display:block; margin-top:6px}
+  @media (max-width:640px){.delivers{grid-template-columns:1fr}.delivers .d{border-right:0}.delivers .d:nth-last-child(2){border-bottom:1px solid var(--line)}}
+  .returns{margin-top:32px; color:var(--muted); font-size:15.5px; max-width:70ch}
+  .returns b{color:var(--text); font-weight:600}
+  .take{display:flex; flex-wrap:wrap; align-items:center; gap:18px; margin-top:34px; padding-top:26px; border-top:1px solid var(--line)}
+  .take span{font-family:var(--mono); font-size:13px; color:var(--muted-2)}
+
+  .founder{display:grid; grid-template-columns:auto 1fr; gap:32px; align-items:center}
+  @media (max-width:600px){.founder{grid-template-columns:1fr}}
+  .founder .mark{width:112px; height:112px; border:1px solid var(--line-2); border-radius:3px; display:grid; place-items:center; font-family:var(--serif); font-size:38px; color:var(--gold-2); flex:none}
+  .founder .who{margin-top:13px; font-family:var(--mono); font-size:12.5px; color:var(--muted)}
+
+  .invite{padding:clamp(64px,11vh,120px) 0}
+  .invite .split2{display:grid; grid-template-columns:1.3fr .7fr; gap:44px; align-items:start}
+  @media (max-width:760px){.invite .split2{grid-template-columns:1fr; gap:30px}}
+  .invite h2{font-size:clamp(30px,4.6vw,48px); max-width:14ch}
+  .invite h2 em{font-style:italic; color:var(--gold-2)}
+  .invite .lead{margin-top:18px; max-width:52ch}
+  .contact-card{border:1px solid var(--line-2); border-radius:3px; padding:26px}
+  .contact-card .eyebrow{display:block; margin-bottom:14px}
+  .contact-card a.btn{width:100%; justify-content:center; margin-bottom:14px}
+  .contact-card .row{display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-top:1px solid var(--line); font-family:var(--mono); font-size:12.5px}
+  .contact-card .row:first-of-type{border-top:none; margin-top:4px}
+  .contact-card .row span:first-child{color:var(--muted-2)}
+  .contact-card .row a{color:var(--gold); text-decoration:none}
+  .motto{font-family:var(--serif); font-style:italic; color:var(--muted); margin-top:26px; font-size:16px}
+
+  footer{border-top:1px solid var(--line); padding:28px 0; color:var(--muted-2); font-size:12.5px; font-family:var(--mono); letter-spacing:.03em}
+  .footrow{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px}
+
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){ .rule-grad::after{display:none} }
+</style>
+
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="hl" x1="10" y1="60" x2="110" y2="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4FE3F2"/><stop offset=".5" stop-color="#6AA8FF"/><stop offset="1" stop-color="#B067F9"/></linearGradient><radialGradient id="hi" cx=".42" cy=".4" r=".75"><stop offset="0" stop-color="#7BECFB"/><stop offset=".45" stop-color="#6AA8FF"/><stop offset="1" stop-color="#B067F9"/></radialGradient><radialGradient id="hg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE39A"/><stop offset="1" stop-color="#D9B675"/></radialGradient></defs><path d="M8 60 C 30 28, 90 28, 112 60 C 90 92, 30 92, 8 60 Z" stroke="url(#hl)" stroke-width="5" stroke-linejoin="round" fill="none"/><circle cx="60" cy="60" r="23" fill="url(#hi)"/><circle cx="60" cy="60" r="9.5" fill="#0B0F1E"/><path d="M52 49 L54 55.5 L60.5 57.5 L54 59.5 L52 66 L50 59.5 L43.5 57.5 L50 55.5 Z" fill="url(#hg)"/></svg>
+        <b>Visionary Software</b>
+      </a>
+      <span class="meta" style="margin-left:auto">Investor Brief · <a href="#raise">The ask ↓</a></span>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<main>
+
+<section class="cover">
+  <div class="wrap">
+    <span class="eyebrow">Investor Brief · Visionary Software LLC</span>
+    <h1>Three doors. <em>One key.</em></h1>
+    <p class="lead">Visionary Software LLC adapts the professional software the world already runs on for screen readers — turning what you'd read with your eyes into what you hear. One method, proven three times over: AccessBridge ships today, FLSpeaks is in active build, and OBSSpeaks is feature-complete and entering testing. This brief is the company, the three products, the market, and the raise to build all of it into a company run at full focus, on a proper footing.</p>
+    <div class="cover-meta">
+      <span>Raising&nbsp;&nbsp;<b>$450,000</b></span>
+      <span>Stage&nbsp;&nbsp;<b>Pre-seed</b></span>
+      <span>Founder&nbsp;&nbsp;<b>Leroy Abraham Junior</b></span>
+      <span>Raising for&nbsp;&nbsp;<b>3 accessibility products</b></span>
+    </div>
+    <div class="cover-cta">
+      <a class="btn btn-primary" href="#raise">Review the raise</a>
+      <a class="btn btn-ghost" href="#products">Meet the products</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule-grad"></div>
+
+<!-- 01 THE COMPANY -->
+<section id="company">
+  <div class="wrap">
+    <div class="kicker"><span class="no">01</span><span class="eyebrow">The company</span><hr class="rule"></div>
+    <div>
+      <h2 class="h-lead">A studio with one repeatable idea.</h2>
+      <p class="lead sec-intro">Accessibility rarely stays niche — captions, voice control, and screen readers all began as "for a few" and became "for everyone." Visionary Software finds a flagship tool the industry left closed, opens it honestly, and owns the segment few competitors will serve. Then it does it again. Three times now, on its own, before a cent of outside funding.</p>
+    </div>
+    <div class="model">
+      <div class="row"><span class="n">1</span><div><h3>Find the locked door</h3><p>A flagship tool closed by disability, price, or design — where talent is priced out by access, not ability.</p></div></div>
+      <div class="row"><span class="n">2</span><div><h3>Build the bridge</h3><p>Get the facts out of the software and speak them — honestly engineered, deeply tested, no shortcuts.</p></div></div>
+      <div class="row"><span class="n">3</span><div><h3>Own the niche</h3><p>Become the default access layer, championed by the community's own people, with a path to the platform vendors themselves.</p></div></div>
+      <div class="row"><span class="n">4</span><div><h3>Repeat</h3><p>The same playbook on the next locked door — and the next. Three for three: a DJ platform, a DAW, and broadcast software, each closed on its own terms, each opened the same way.</p></div></div>
+    </div>
+    <div class="pquote" style="margin-top:42px">
+      <p>At least 2.2 billion people live with a vision impairment — locked out of the software the world runs on. This is not charity; it is access, dignity, and a livelihood. Three doors are already open. This raise is what it takes to hold them open and build the next ones.</p>
+    </div>
+    <p class="lead" style="margin-top:28px">Visionary Software builds for the world. Blind and low-vision users are where the company started and where its edge is sharpest today — but the same engine that turns a locked interface into something you can hear reaches past accessibility, too: it is the same engineering discipline behind the studio's professional audio tools, built for any producer or engineer, sighted or not. Three doors today; the method doesn't stop at the ones locked by disability.</p>
+
+    <div class="vlead" style="margin-top:36px">
+      <video controls preload="none" playsinline poster="data:image/jpeg;base64,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">
+        <source src="https://jbreeze803-jpg.github.io/visionary-promo-media/Visionary-Mission.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="vcap"><b>The mission, in one minute</b><span>Why Visionary Software exists, and who it's for</span><a href="https://jbreeze803-jpg.github.io/visionary-promo-media/Visionary-Mission.mp4" style="margin-left:auto;color:var(--gold-2);font-family:var(--mono);font-size:12px;text-decoration:none" target="_blank" rel="noopener">Open the film ↗</a></div>
+  </div>
+</section>
+
+<!-- 02 THE PRODUCTS -->
+<section id="products" class="band">
+  <div class="wrap">
+    <div class="kicker"><span class="no">02</span><span class="eyebrow">The products</span><hr class="rule"></div>
+    <div>
+      <h2 class="h-lead">One method. Three professional tools.</h2>
+      <p class="lead sec-intro">Each has its own full product brief — the gap, the fix, the numbers, in the same depth as this one. Read all three; the pattern is the point.</p>
+    </div>
+    <div class="products">
+      <a class="pcard" href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/index.html">
+        <span class="tag">Product one · Shipping</span>
+        <h3>AccessBridge</h3>
+        <p>Serato DJ Pro and djay Pro, playable entirely by ear. Of Serato's 124 interface controls, a screen reader could read two — now it reads all of it.</p>
+        <span class="go">Read the product brief →</span>
+        <span class="stat">37,000+ lines · 719 tests · in testers' hands today</span>
+      </a>
+      <a class="pcard" href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/flspeaks.html">
+        <span class="tag">Product two · In build</span>
+        <h3>FLSpeaks</h3>
+        <p>Full spoken access to FL Studio, the world's most-searched DAW — closed to screen readers by Image-Line's own admission, opened by a live MIDI bridge.</p>
+        <span class="go">Read the product brief →</span>
+        <span class="stat">461 commands · 597 live plugin params · verified live</span>
+      </a>
+      <a class="pcard" href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/obsspeaks.html">
+        <span class="tag">Product three · Entering testing</span>
+        <h3>OBSSpeaks</h3>
+        <p>OBS Studio, the software behind most of the world's livestreams, patched at the source to be fully usable by ear.</p>
+        <span class="go">Read the product brief →</span>
+        <span class="stat">35 patches · 7 console tabs · 15-chapter masterclass</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 02b BEYOND ACCESSIBILITY -->
+<section id="beyond">
+  <div class="wrap">
+    <div class="kicker"><span class="no">•</span><span class="eyebrow">Beyond accessibility</span><hr class="rule"></div>
+    <div>
+      <h2 class="h-lead">One studio. Software for anyone who needs it done right.</h2>
+      <p class="lead sec-intro">Visionary Software develops for the blind today — that's where the company started, and where its edge is sharpest. It doesn't stop there. The same studio runs a confidential client software practice for sighted businesses, and ships a line of professional audio tools with nothing to do with accessibility — try the audio tools below; they're live, working builds, not mockups.</p>
+    </div>
+    <p class="eyebrow" style="margin-top:38px">Client engagements (confidential)</p>
+    <div class="products" style="margin-top:14px">
+      <a class="pcard" href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/capabilities.html">
+        <span class="tag">Original demos · Built for this pitch</span>
+        <h3>Try the capability demos</h3>
+        <p>Real client deliverables stay confidential under NDA — a dispatch and booking platform, an institutional-finance marketing site, and an enterprise service catalog. These three interactive demos, built specifically for this pitch, show the same categories of work at the same level of polish.</p>
+        <span class="go">Try the interactive demos →</span>
+        <span class="stat">Booking &amp; dispatch · funding calculator · configurator &amp; cart</span>
+      </a>
+    </div>
+    <p class="eyebrow" style="margin-top:38px">Studio audio tools</p>
+    <div class="products" style="margin-top:14px">
+      <a class="pcard" href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/studio.html">
+        <span class="tag">Shipped · Any producer</span>
+        <h3>The Visionary Studio line</h3>
+        <p>Visionary Mastering Suite, Visionary Bus, and Visionary Slice — real, shipped professional audio tools built for any producer or engineer. Play with the actual engines, live in your browser.</p>
+        <span class="go">Try the interactive demos →</span>
+        <span class="stat">112 presets · −130 dBFS parity · 13 live-modulated lanes</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 03 THE MARKET -->
+<section id="market">
+  <div class="wrap">
+    <div class="kicker"><span class="no">03</span><span class="eyebrow">The market &amp; the moment</span><hr class="rule"></div>
+    <h2 class="h-lead" style="margin-bottom:32px">Overdue, underserved, and right on time.</h2>
+    <div class="split">
+      <ul class="points">
+        <li><b>Accessibility is now law, and the clock just moved.</b>The European Accessibility Act has been in force across the EU since June 2025 (WCAG 2.1 AA). In the US, the DOJ's ADA Title II rule just extended its own deadline — large public entities now have until April 26, 2027, smaller ones until April 26, 2028 — while 3,117 federal web-accessibility lawsuits were filed in 2025 alone, up 27% year over year.</li>
+        <li><b>The scale is real and still growing.</b>The World Health Organization estimates at least 2.2 billion people live with a vision impairment, roughly 43 million of them blind. The assistive-technology market itself is forecast to reach $31.22 billion by 2030.</li>
+        <li><b>Disabled founders are underfunded, which is the opportunity.</b>Founders with disabilities are cited as up to 400% less likely to secure investment than their peers — not because the businesses are weaker, but because the pattern-matching is broken. Dedicated capital is only now emerging for this exact founder profile — Adaptation Ventures, a $10M pre-seed angel fund launched 2025, and Ability Lane, a matchmaking platform connecting disability-tech founders to investors, launched May 2026. An investor who moves first here isn't taking a risk on an unproven category — they're getting ahead of one.</li>
+      </ul>
+      <div class="everyone">
+        <h3>Built for the blind. Better for everyone.</h3>
+        <p>The same engine that names a controller by ear is a powerful hands-free layer for any professional — eyes on the work, not the screen. That is how accessibility companies grow past their first market: the technology is universal, the empathy is the moat.</p>
+        <p>A comparable disability-tech pre-seed — Accessercise, a fitness app for people with impairments — raised a £600,000 pre-seed round. Visionary Software is proposing a larger raise because it is proposing more: three shipped-or-shipping products, not one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 THE RAISE -->
+<section id="raise" class="band">
+  <div class="wrap">
+    <div class="kicker"><span class="no">04</span><span class="eyebrow">The raise</span><hr class="rule"></div>
+    <div>
+      <div class="raise-fig">$450,000</div>
+      <div class="raise-sub">18-month pre-seed · for Visionary Software LLC · three products to a stable 1.0</div>
+      <p class="lead" style="margin-top:20px; max-width:64ch">All I own today is a 2021 MacBook Pro M1 and a dream. This raise is sized to build the company: three products shipped to a stable 1.0, and a founder who can build it at a pace that lasts.</p>
+    </div>
+
+    <div class="invested">
+      <span class="eyebrow">Already on the line</span>
+      <h3>I'm not asking you to bet on an idea — the proof is already built, three times.</h3>
+      <p>Before asking for a cent, I built two products alone and brought a third to feature-complete: <b>months of full-time work, unpaid</b>, on my own 2021 MacBook Pro M1, with test hardware bought out of pocket and <b>zero outside funding</b>. All three are real, working software today — one in testers' hands, one in active build, one entering its first tester cohort. The $450,000 is not seed money for a pitch — it is fuel for a fire that is already lit, three times over.</p>
+      <div class="igrid">
+        <div class="g"><b>Months</b><span>full-time and unpaid, across all three — my own runway, already spent</span></div>
+        <div class="g"><b>44,000+</b><span>lines of original Swift, C++, and Python shipped across two codebases</span></div>
+        <div class="g"><b>35</b><span>patches hardening a third, rebased clean onto stock OBS Studio</span></div>
+        <div class="g"><b>$0</b><span>outside funding to date — self-funded, on real hardware, three times</span></div>
+      </div>
+      <p style="margin-top:22px">Already delivered, too: two full narrated audio masterclasses (18 and 15 chapters) and complete written references — the exact "blind-first documentation and onboarding" a raise like this normally has to budget for from scratch — built and recorded before asking for a cent.</p>
+    </div>
+
+    <div>
+      <div class="stack" aria-hidden="true">
+        <i style="width:33.3%;background:#EAD199"></i><i style="width:20%;background:#D9B675"></i><i style="width:4.4%;background:#C6A25E"></i><i style="width:7.8%;background:#B08C4E"></i><i style="width:5.6%;background:#8FBF8A"></i><i style="width:6.7%;background:#6AA8FF"></i><i style="width:6.7%;background:#8A8DFB"></i><i style="width:2.2%;background:#B067F9"></i><i style="width:5.6%;background:#E893C4"></i><i style="width:7.8%;background:#727C96"></i>
+      </div>
+      <div class="alloc">
+        <div class="alloc-item">
+          <button class="r" type="button" aria-expanded="false" aria-controls="a1"><span class="sw" style="background:#EAD199"></span><span class="nm">Founder runway<small>18 months building full-time, comfortably</small></span><span class="amt">$150,000</span><span class="pct">33.3%</span><span class="cv" aria-hidden="true">▸</span></button>
+          <div class="r-exp" id="a1" hidden><span class="sum">A real, sustainable living wage — not a below-market stipend — so building decisions are about the roadmap, not the rent.</span><ul><li><b>~$8,300 / month</b> for eighteen months — inside Y Combinator's own guidance that a funded founder pays themselves $50,000–$100,000 a year: comfortable, not lavish, not stressed.</li><li>Three products, one founder: this is the difference between building at a sprint and building at a pace that lasts.</li><li>Runway long enough to actually ship three products, not just one.</li></ul></div>
+        </div>
+        <div class="alloc-item">
+          <button class="r" type="button" aria-expanded="false" aria-controls="a2"><span class="sw" style="background:#D9B675"></span><span class="nm">Contract engineering<small>Parallelize the three products instead of serializing them</small></span><span class="amt">$90,000</span><span class="pct">20%</span><span class="cv" aria-hidden="true">▸</span></button>
+          <div class="r-exp" id="a2" hidden><span class="sum">The single highest-leverage line item: buying back the time a solo founder loses shipping three products one after another instead of together.</span><ul><li>Roughly 900 hours at a $90–$100/hour blended senior-contractor rate — specialized C/C++ and audio/DAW engineering runs $75–$180/hour in current market rate surveys.</li><li><b>~$45,000</b> targeted at FLSpeaks' remaining bridge hardening; <b>~$45,000</b> at OBSSpeaks' remaining accessibility gaps.</li><li>The founder stays the architect and final reviewer of every line; this is leverage, not delegation of the vision.</li></ul></div>
+        </div>
+        <div class="alloc-item">
+          <button class="r" type="button" aria-expanded="false" aria-controls="a3"><span class="sw" style="background:#C6A25E"></span><span class="nm">Ship AccessBridge 1.0<small>Windows, controllers, signing &amp; license server</small></span><span class="amt">$20,000</span><span class="pct">4.4%</span><span class="cv" aria-hidden="true">▸</span></button>
+          <div class="r-exp" id="a3" hidden><span class="sum">Everything it takes to finish and ship version 1.0 on both platforms — the flagship, still the fastest to revenue.</span><ul><li><b>~$2,000</b> — Apple Developer membership + notarization, and a Windows code-signing certificate.</li><li><b>~$14,000</b> — finishing the Windows port and the HID / Pro-DJ-Link input layer for club CDJ and XDJ players.</li><li><b>~$4,000</b> — license-server hosting + domain, first year — turning a download into a paying customer.</li></ul></div>
+        </div>
+        <div class="alloc-item">
+          <button class="r" type="button" aria-expanded="false" aria-controls="a4"><span class="sw" style="background:#B08C4E"></span><span class="nm">Ship FLSpeaks 1.0<small>Full command coverage, hardened bridge, beta</small></span><span class="amt">$35,000</span><span class="pct">7.8%</span><span class="cv" aria-hidden="true">▸</span></button>
+          <div class="r-exp" id="a4" hidden><span class="sum">The newest of the three, and the one with the most ground left to cover before a public release.</span><ul><li><b>~$15,000</b> — piano-roll note-level read/write, beyond today's trigger/quantize-only coverage.</li><li><b>~$8,000</b> — per-clip playlist enumeration, beyond today's track-level view.</li><li><b>~$12,000</b> — full notarized distribution, an Apple Developer ID replacing the current stable self-signed build.</li></ul></div>
+        </div>
+        <div class="alloc-item">
+          <button class="r" type="button" aria-expanded="false" aria-controls="a5"><span class="sw" style="background:#8FBF8A"></span><span class="nm">Ship OBSSpeaks 1.0<small>The remaining honest gaps, verified by ear</small></span><span class="amt">$25,000</span><span class="pct">5.6%</span><span class="cv" aria-hidden="true">▸</span></button>
+          <div class="r-exp" id="a5" hidden><span class="sum">Feature-complete does not mean finished — this closes what's still openly documented as open.</span><ul><li><b>~$12,000</b> — an accessible peer for the level meter and preview-canvas <em>contents</em>, not just their metadata.</li><li><b>~$8,000</b> — full end-to-end verification by ear across every remaining corner of the console.</li><li><b>~$5,000</b> — support through the first real tester cohort.</li></ul></div>
+        </div>
+        <div class="alloc-item">
+          <button class="r" type="button" aria-expanded="false" aria-controls="a6"><span class="sw" style="background:#6AA8FF"></span><span class="nm">Hardware &amp; test rigs<small>Controllers, MIDI gear, capture cards, three products</small></span><span class="amt">$30,000</span><span class="pct">6.7%</span><span class="cv" aria-hidden="true">▸</span></button>
+          <div class="r-exp" id="a6" hidden><span class="sum">Real gear to prove every feature on real equipment, across three products at once — none of them can trust a feature that only works in a demo.</span><ul><li><b>~$12,000</b> — DJ controllers, CDJ/XDJ media-player access, and a real Windows test machine for AccessBridge.</li><li><b>~$9,000</b> — MIDI keyboards and FL-Studio-class production hardware for FLSpeaks.</li><li><b>~$9,000</b> — capture cards, streaming hardware, and cameras for OBSSpeaks.</li></ul></div>
+        </div>
+        <div class="alloc-item">
+          <button class="r" type="button" aria-expanded="false" aria-controls="a7"><span class="sw" style="background:#8A8DFB"></span><span class="nm">Accessibility QA, docs &amp; onboarding<small>Paid betas and documentation, three products</small></span><span class="amt">$30,000</span><span class="pct">6.7%</span><span class="cv" aria-hidden="true">▸</span></button>
+          <div class="r-exp" id="a7" hidden><span class="sum">Making the first run of every product need zero sighted help, validated by the people they're for.</span><ul><li><b>~$15,000</b> — paid betas with working blind DJs, producers, and streamers.</li><li><b>~$8,000</b> — keeping the two existing masterclasses current, and building FLSpeaks' own.</li><li><b>~$7,000</b> — WCAG 2.2 audits of every companion interface.</li></ul></div>
+        </div>
+        <div class="alloc-item">
+          <button class="r" type="button" aria-expanded="false" aria-controls="a8"><span class="sw" style="background:#B067F9"></span><span class="nm">Company formation, legal &amp; IP<small>LLC, four trademarks, licensing agreements</small></span><span class="amt">$10,000</span><span class="pct">2.2%</span><span class="cv" aria-hidden="true">▸</span></button>
+          <div class="r-exp" id="a8" hidden><span class="sum">The legal foundation a company with four names to protect stands on.</span><ul><li><b>~$1,500</b> — LLC formation and registered agent.</li><li><b>~$7,000</b> — four trademark filings (Visionary Software, AccessBridge, FLSpeaks, OBSSpeaks), priced against real 2026 USPTO filing and attorney-fee data.</li><li><b>~$1,500</b> — license and pilot agreements drafted with counsel.</li></ul></div>
+        </div>
+        <div class="alloc-item">
+          <button class="r" type="button" aria-expanded="false" aria-controls="a9"><span class="sw" style="background:#E893C4"></span><span class="nm">Launch, marketing &amp; community<small>Into every hand that needs it, three products</small></span><span class="amt">$25,000</span><span class="pct">5.6%</span><span class="cv" aria-hidden="true">▸</span></button>
+          <div class="r-exp" id="a9" hidden><span class="sum">Getting three products into the hands of the people they were built for.</span><ul><li><b>~$5,000</b> — hosting, domains, and the promo work already built.</li><li><b>~$10,000</b> — a modest ad budget into blind-DJ, blind-producer, and blind-streamer communities.</li><li><b>~$10,000</b> — demo and conference presence; content and community management.</li></ul></div>
+        </div>
+        <div class="alloc-item">
+          <button class="r" type="button" aria-expanded="false" aria-controls="a10"><span class="sw" style="background:#727C96"></span><span class="nm">Contingency<small>The walls a real build always hits, three times over</small></span><span class="amt">$35,000</span><span class="pct">7.8%</span><span class="cv" aria-hidden="true">▸</span></button>
+          <div class="r-exp" id="a10" hidden><span class="sum">A reserve sized for three concurrent products instead of one — honest budgets carry a buffer.</span><ul><li>A controller, DAW version, or OBS release that behaves differently than its published spec.</li><li>An OS or platform change that breaks something mid-build, on any of the three.</li><li>An unexpected certificate, hosting, or hardware cost.</li></ul></div>
+        </div>
+        <div class="r tot"><span></span><span class="nm">Total</span><span class="amt">$450,000</span><span class="pct">100%</span></div>
+      </div>
+    </div>
+
+    <p class="eyebrow" style="margin-top:48px">What $450,000 delivers in eighteen months</p>
+    <div class="delivers">
+      <div class="d"><b>Three products, shipped</b><span>AccessBridge, FLSpeaks, and OBSSpeaks, all at a stable 1.0 — not one flagship carrying the company alone.</span></div>
+      <div class="d"><b>A founder who can keep building</b><span>A comfortable, sustainable runway — the single biggest lever for how fast a solo-founder company can execute.</span></div>
+      <div class="d"><b>A real company</b><span>Formed, trademarked four times over, with contract help where it counts most.</span></div>
+      <div class="d"><b>First revenue on three fronts</b><span>Direct licenses across three communities, plus live paid-pilot conversations with the platform vendors.</span></div>
+    </div>
+
+    <p class="returns"><b>How it returns.</b> Three parallel paths, all live: <b>direct licenses</b> to the blind DJ, producer, and streamer communities across all three products — a real, identifiable audience inside a WHO-estimated 43 million blind and 2.2 billion vision-impaired population; a <b>paid pilot or technology license</b> with the platform vendors where a vendor relationship makes sense (Serato, Algoriddim, Image-Line) — the same motion that grew Accessercise, a comparable disability-tech company, into a £600,000-backed business; and, in time, an <b>exclusive license or acquisition</b> for the company as a whole, into a global assistive-technology market forecast at $31.22 billion by 2030. Structure — equity, SAFE, or otherwise — to be set with counsel; this brief is the value case and the proof the software already works.</p>
+
+    <div class="take">
+      <a class="btn btn-primary" href="mailto:breezywonderofficial@gmail.com?subject=Visionary%20Software%20LLC%20%E2%80%94%20investment%20conversation">Start a conversation</a>
+      <span>breezywonderofficial@gmail.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- 05 THE FOUNDER -->
+<section id="founder">
+  <div class="wrap">
+    <div class="kicker"><span class="no">05</span><span class="eyebrow">The founder</span><hr class="rule"></div>
+    <div class="founder">
+      <div class="mark" aria-hidden="true">LA</div>
+      <div>
+        <div class="pquote"><p>"He didn't commission this from a lab. He built the things he needed, because he is exactly the user they're for. That is the credibility no sighted engineering team can buy: the person who feels every missing detail is the person designing it — three times now."</p></div>
+        <p class="who">Leroy Abraham Junior — Founder, Visionary Software LLC. Blind producer, mix &amp; mastering engineer, drummer, live-sound engineer, DJ, and streamer, with credits alongside Blind Fury and DrummaBoy — and the creator who will demo all three accessibility products live. He also runs a working client software practice — real platforms delivered for a transportation company and two financial and enterprise-services firms — engineering range that reaches well past his own lived experience. Every line and every test, built by one founder, by hand — a company made to be built together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 CLOSE -->
+<section class="invite band">
+  <div class="wrap">
+    <div class="split2">
+      <div>
+        <span class="eyebrow">Build it with me</span>
+        <h2 style="margin-top:14px">One founder. <em>A family building the way in.</em></h2>
+        <p class="lead">I am building Visionary Software alone — every line, every test, by hand, across three products. But a company like this is not built alone for long. The investors who join now are not a cap table; they are the family that opens the first door, and every door after.</p>
+        <p class="motto">From me, to the world.</p>
+      </div>
+      <div class="contact-card">
+        <span class="eyebrow">Get in touch</span>
+        <a class="btn btn-primary" href="mailto:breezywonderofficial@gmail.com?subject=Visionary%20Software%20%E2%80%94%20investment%20conversation">Start a conversation →</a>
+        <a class="btn btn-ghost" href="https://jbreeze803-jpg.github.io/visionary-promo-media/Visionary-Software-Investor-Deck.pdf" style="width:100%; justify-content:center; margin-bottom:14px">Download the deck (PDF)</a>
+        <a class="btn btn-ghost" href="https://jbreeze803-jpg.github.io/visionary-promo-media/Visionary-Software-Executive-Onepager.pdf" style="width:100%; justify-content:center; margin-bottom:14px">Download the one-pager (PDF)</a>
+        <div class="row"><span>Founder</span><span>Leroy Abraham Junior</span></div>
+        <div class="row"><span>Email</span><a href="mailto:breezywonderofficial@gmail.com">breezywonderofficial@gmail.com</a></div>
+        <div class="row"><span>Instagram</span><a href="https://instagram.com/breezywonderofficial">@breezywonderofficial</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footrow">
+    <span>Visionary Software LLC — building for the world, starting with the blind</span>
+    <span>Investor brief</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('button[aria-controls]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var wrap = btn.parentElement, panel = document.getElementById(btn.getAttribute('aria-controls'));
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      wrap.classList.toggle('open', !open);
+      if(panel) panel.hidden = open;
+    });
+  });
+})();
+</script>

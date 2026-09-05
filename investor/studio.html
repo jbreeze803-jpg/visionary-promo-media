@@ -1,0 +1,834 @@
+<title>Studio Line — Interactive Demos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Play with the real engines behind Visionary Mastering Suite, Visionary Bus, and Visionary Slice — live in the browser. Beyond accessibility: the same engineering, built for any producer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#0B0F1E; --ink-2:#0E1426; --panel:#121A2E; --panel-2:#161F38;
+    --line:#212B44; --line-2:#303B58;
+    --text:#ECE8DC; --muted:#9DA6BB; --muted-2:#727C96;
+    --gold:#D9B675; --gold-2:#EAD199;
+    --cyan:#4FE3F2; --blue:#6AA8FF; --viol:#B067F9; --green:#8FBF8A;
+    --grad:linear-gradient(100deg,#4FE3F2,#6AA8FF,#B067F9);
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Public Sans',system-ui,-apple-system,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--ink); color:var(--text); font-family:var(--sans); font-size:17.5px; line-height:1.72; -webkit-font-smoothing:antialiased; letter-spacing:.005em}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(22px,5vw,44px)}
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--serif); font-weight:500; line-height:1.12; margin:0; font-optical-sizing:auto; letter-spacing:-.01em; text-wrap:balance}
+  p{margin:0}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); font-weight:500}
+  .lead{font-size:clamp(18px,2.1vw,21px); color:var(--muted); max-width:60ch; line-height:1.68}
+  .lead strong{color:var(--text); font-weight:600}
+  .rule{height:1px; background:var(--line); border:0; margin:0}
+  .rule-grad{height:2px; border:0; background:var(--grad); opacity:.7; border-radius:2px; position:relative; overflow:hidden}
+  .rule-grad::after{content:""; position:absolute; top:0; left:-45%; width:45%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent); animation:sweep 7s ease-in-out infinite}
+  @keyframes sweep{0%{left:-45%} 55%,100%{left:130%}}
+
+  header{position:sticky; top:0; z-index:40; background:rgba(11,15,30,.9); backdrop-filter:blur(14px); border-bottom:1px solid var(--line)}
+  .nav{display:flex; align-items:center; gap:18px; height:64px}
+  .brand{display:flex; align-items:center; gap:11px; text-decoration:none}
+  .brand svg{width:28px; height:28px; flex:none}
+  .brand b{font-family:var(--mono); font-weight:500; font-size:13px; letter-spacing:.2em; text-transform:uppercase}
+  .nav .meta{font-family:var(--mono); font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted-2)}
+  .nav .meta a{color:var(--gold); text-decoration:none; position:relative}
+  .nav .meta a::after{content:""; position:absolute; left:0; bottom:-2px; width:100%; height:1px; background:currentColor; transform:scaleX(0); transform-origin:left; transition:transform .25s ease}
+  .nav .meta a:hover::after{transform:scaleX(1)}
+  @media (max-width:640px){.nav .meta{display:none}}
+
+  .btn{display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-weight:600; font-size:14.5px; letter-spacing:.02em; text-decoration:none; padding:13px 24px; border-radius:2px; border:1px solid transparent; transition:background .2s,color .2s,border-color .2s,transform .18s ease; cursor:pointer}
+  .btn-primary{background:var(--gold); color:#1a1206}
+  .btn-primary:hover{background:var(--gold-2); transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line-2); color:var(--text); background:none}
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold-2)}
+  .btn:disabled{opacity:.45; cursor:default; transform:none}
+  .btn-sm{padding:9px 16px; font-size:13px}
+
+  .cover{padding:clamp(56px,11vh,120px) 0 clamp(48px,7vh,84px)}
+  .cover .eyebrow{display:block; margin-bottom:26px}
+  .cover h1{font-size:clamp(38px,6.6vw,70px); font-weight:500; letter-spacing:-.025em; max-width:18ch}
+  .cover h1 em{font-style:italic; color:var(--gold-2)}
+  .cover .lead{margin-top:28px; font-size:clamp(19px,2.3vw,23px); max-width:64ch}
+  .cover-meta{display:flex; flex-wrap:wrap; gap:14px 40px; margin-top:40px; padding-top:26px; border-top:1px solid var(--line); font-family:var(--mono); font-size:13px; color:var(--muted)}
+  .cover-meta b{color:var(--text); font-weight:500}
+  .cover-cta{display:flex; flex-wrap:wrap; gap:14px; margin-top:34px}
+
+  section{padding:clamp(52px,8vh,92px) 0}
+  .band{background:var(--ink-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .kicker{display:flex; align-items:baseline; gap:16px; margin-bottom:28px}
+  .kicker .no{font-family:var(--mono); font-size:12px; color:var(--gold); letter-spacing:.16em}
+  .kicker .rule{flex:1; align-self:center}
+  .h-lead{max-width:30ch}
+  h2{font-size:clamp(27px,3.8vw,40px); font-weight:500; letter-spacing:-.018em}
+  .sec-intro{margin-top:16px}
+
+  .figs{display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin:30px 0 6px; border:1px solid var(--line); border-radius:3px}
+  .figs .f{padding:22px 18px; border-right:1px solid var(--line)}
+  .figs .f:last-child{border-right:0}
+  .figs .f .num{font-family:var(--mono); font-weight:500; font-size:clamp(22px,3vw,30px); color:var(--gold-2); letter-spacing:-.02em; line-height:1}
+  .figs .f .lab{margin-top:9px; color:var(--muted); font-size:13px; line-height:1.5}
+  @media (max-width:760px){.figs{grid-template-columns:1fr 1fr}.figs .f:nth-child(2n){border-right:0}.figs .f{border-bottom:1px solid var(--line)}}
+
+  /* ---- demo panel shell ---- */
+  .panel{border:1px solid var(--line-2); border-radius:4px; padding:clamp(22px,3.2vw,36px); margin-top:8px; background:linear-gradient(180deg,rgba(255,255,255,.012),transparent)}
+  .panel + .panel{margin-top:34px}
+  .panel-head{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:14px}
+  .panel-head h3{font-size:clamp(22px,2.8vw,28px)}
+  .panel-tag{font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted-2); border:1px solid var(--line-2); border-radius:99px; padding:5px 12px}
+  .panel-sub{color:var(--muted); margin-top:10px; font-size:15px; max-width:70ch}
+
+  .playbar{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:24px; padding:16px 18px; border:1px solid var(--line-2); border-radius:3px; background:rgba(0,0,0,.16)}
+  .playbar .status{font-family:var(--mono); font-size:12px; color:var(--muted-2); letter-spacing:.04em}
+  .playbar .status b{color:var(--gold-2); font-weight:500}
+  .abgroup{display:inline-flex; border:1px solid var(--line-2); border-radius:99px; overflow:hidden; margin-left:auto}
+  .abgroup button{font-family:var(--mono); font-size:12px; letter-spacing:.06em; padding:8px 16px; border:0; background:none; color:var(--muted); cursor:pointer}
+  .abgroup button.on{background:var(--gold); color:#1a1206; font-weight:600}
+  @media (max-width:560px){.abgroup{margin-left:0}}
+
+  .ctrl-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:34px; margin-top:26px; align-items:start}
+  @media (max-width:820px){.ctrl-grid{grid-template-columns:1fr}}
+
+  .vibe-row{display:flex; flex-wrap:wrap; gap:9px}
+  .vibe-btn{font-family:var(--sans); font-size:13.5px; font-weight:600; padding:10px 15px; border-radius:99px; border:1px solid var(--line-2); background:none; color:var(--muted); cursor:pointer; transition:border-color .18s,color .18s,background .18s}
+  .vibe-btn:hover{border-color:var(--gold); color:var(--gold-2)}
+  .vibe-btn.on{background:var(--gold); border-color:var(--gold); color:#1a1206}
+  .vibe-note{margin-top:14px; color:var(--muted-2); font-size:13.5px; min-height:20px}
+
+  .dial{margin-top:20px}
+  .dial label{display:flex; justify-content:space-between; font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted-2); margin-bottom:8px}
+  .dial label b{color:var(--gold-2); font-weight:500; letter-spacing:0; text-transform:none}
+  .dial input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:3px; background:var(--line-2); border-radius:2px; outline:none}
+  .dial input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; width:16px; height:16px; border-radius:50%; background:var(--gold); border:2px solid var(--ink); cursor:pointer}
+  .dial input[type=range]::-moz-range-thumb{width:14px; height:14px; border-radius:50%; background:var(--gold); border:2px solid var(--ink); cursor:pointer}
+
+  .eqwrap{border:1px solid var(--line-2); border-radius:3px; padding:14px; background:#05070d}
+  .eqwrap canvas{display:block; width:100%; height:150px}
+  .eqcap{display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--muted-2); margin-top:8px}
+
+  .meter{margin-top:16px}
+  .meter .mrow{display:flex; align-items:center; gap:10px; margin-top:8px}
+  .meter .mrow span:first-child{font-family:var(--mono); font-size:11px; color:var(--muted-2); width:64px; flex:none}
+  .meter .track{flex:1; height:7px; border-radius:4px; background:var(--line-2); overflow:hidden}
+  .meter .track i{display:block; height:100%; background:var(--grad); width:0%; transition:width .12s linear}
+  .meter .mval{font-family:var(--mono); font-size:11px; color:var(--gold-2); width:58px; text-align:right; flex:none}
+
+  .chain-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px}
+  .chain-row .stg{font-family:var(--mono); font-size:11.5px; letter-spacing:.02em; color:var(--muted); border:1px solid var(--line-2); border-radius:3px; padding:9px 13px; background:rgba(255,255,255,.02)}
+  .chain-row .stg.hi{color:var(--gold-2); border-color:var(--gold)}
+  .chain-row .arrow{color:var(--muted-2); align-self:center; font-size:12px}
+
+  .lane-grid{margin-top:22px; border-top:1px solid var(--line-2)}
+  .lane{display:grid; grid-template-columns:110px 74px 1fr 1fr 90px; gap:12px; align-items:center; padding:11px 0; border-bottom:1px solid var(--line)}
+  .lane .nm{font-weight:600; font-size:13.5px}
+  .lane .nm small{display:block; font-weight:400; color:var(--muted-2); font-size:11px; margin-top:1px}
+  .lane select{width:100%; font-family:var(--sans); font-size:12.5px; background:var(--panel-2); color:var(--text); border:1px solid var(--line-2); border-radius:3px; padding:7px 6px}
+  .lane .lvl{height:20px; border-radius:3px; background:var(--line-2); overflow:hidden; position:relative}
+  .lane .lvl i{display:block; height:100%; background:linear-gradient(90deg,var(--cyan),var(--viol)); width:0%}
+  .lane .onwrap{display:flex; align-items:center; gap:7px; font-family:var(--mono); font-size:11px; color:var(--muted-2); justify-content:flex-end}
+  .lane.dim{opacity:.5}
+  .lane .live-tag{font-family:var(--mono); font-size:9.5px; letter-spacing:.08em; color:var(--green); text-transform:uppercase}
+  @media (max-width:760px){.lane{grid-template-columns:84px 60px 1fr 1fr 66px; font-size:13px}.lane .nm small{display:none}}
+  @media (max-width:560px){.lane{grid-template-columns:1fr 1fr; grid-template-areas:"nm on" "shape rate" "lvl lvl"; row-gap:6px}.lane .nm{grid-area:nm}.lane .onwrap{grid-area:on}.lane select:nth-of-type(1){grid-area:shape}.lane select:nth-of-type(2){grid-area:rate}.lane .lvl{grid-area:lvl}}
+
+  .noteline{margin-top:16px; color:var(--muted-2); font-size:13px; line-height:1.6; padding-top:14px; border-top:1px solid var(--line)}
+
+  .pquote{border-left:2px solid var(--gold); padding:4px 0 4px 26px; margin:6px 0}
+  .pquote p{font-family:var(--serif); font-style:italic; font-size:clamp(19px,2.5vw,25px); font-weight:400; line-height:1.4; color:var(--text)}
+
+  .invite{padding:clamp(56px,9vh,96px) 0}
+  .invite .split2{display:grid; grid-template-columns:1.3fr .7fr; gap:44px; align-items:start}
+  @media (max-width:760px){.invite .split2{grid-template-columns:1fr; gap:30px}}
+  .invite h2{font-size:clamp(27px,3.8vw,36px); max-width:18ch}
+  .invite h2 em{font-style:italic; color:var(--gold-2)}
+  .invite .lead{margin-top:18px; max-width:52ch}
+  .contact-card{border:1px solid var(--line-2); border-radius:3px; padding:26px}
+  .contact-card .eyebrow{display:block; margin-bottom:14px}
+  .contact-card a.btn{width:100%; justify-content:center; margin-bottom:14px}
+  .contact-card .row{display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-top:1px solid var(--line); font-family:var(--mono); font-size:12.5px}
+  .contact-card .row:first-of-type{border-top:none; margin-top:4px}
+  .contact-card .row span:first-child{color:var(--muted-2)}
+  .contact-card .row a{color:var(--gold); text-decoration:none}
+
+  footer{border-top:1px solid var(--line); padding:28px 0; color:var(--muted-2); font-size:12.5px; font-family:var(--mono); letter-spacing:.03em}
+  .footrow{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px}
+
+  .sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){ .rule-grad::after{display:none} }
+</style>
+
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="hl" x1="10" y1="60" x2="110" y2="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4FE3F2"/><stop offset=".5" stop-color="#6AA8FF"/><stop offset="1" stop-color="#B067F9"/></linearGradient><radialGradient id="hi" cx=".42" cy=".4" r=".75"><stop offset="0" stop-color="#7BECFB"/><stop offset=".45" stop-color="#6AA8FF"/><stop offset="1" stop-color="#B067F9"/></radialGradient><radialGradient id="hg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE39A"/><stop offset="1" stop-color="#D9B675"/></radialGradient></defs><path d="M8 60 C 30 28, 90 28, 112 60 C 90 92, 30 92, 8 60 Z" stroke="url(#hl)" stroke-width="5" stroke-linejoin="round" fill="none"/><circle cx="60" cy="60" r="23" fill="url(#hi)"/><circle cx="60" cy="60" r="9.5" fill="#0B0F1E"/><path d="M52 49 L54 55.5 L60.5 57.5 L54 59.5 L52 66 L50 59.5 L43.5 57.5 L50 55.5 Z" fill="url(#hg)"/></svg>
+        <b>Visionary Software</b>
+      </a>
+      <span class="meta" style="margin-left:auto">Studio Line · <a href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/raise.html">Full investor brief ↑</a></span>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<main>
+
+<section class="cover">
+  <div class="wrap">
+    <span class="eyebrow">Visionary Software · Beyond Accessibility</span>
+    <h1>The same engine. <em>Built for anyone.</em></h1>
+    <p class="lead">AccessBridge, FLSpeaks, and OBSSpeaks are the access line. But the underlying craft — real-time signal processing, engineered for people who need it to just work — also ships as professional audio tools with nothing to do with accessibility at all. These three are real, shipped, working software. Play with the actual engines below, live in this page.</p>
+    <div class="cover-meta">
+      <span>Line&nbsp;&nbsp;<b>Visionary Studio</b></span>
+      <span>Products&nbsp;&nbsp;<b>Mastering Suite, Bus, Slice</b></span>
+      <span>Status&nbsp;&nbsp;<b>Shipped, in daily use</b></span>
+    </div>
+    <div class="cover-cta">
+      <a class="btn btn-primary" href="#mastering">Try Mastering Suite</a>
+      <a class="btn btn-ghost" href="#bus">Try Bus</a>
+      <a class="btn btn-ghost" href="#slice">Try Slice</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule-grad"></div>
+
+<!-- INTRO FIGS -->
+<section>
+  <div class="wrap">
+    <div class="kicker"><span class="no">•</span><span class="eyebrow">Why this page exists</span><hr class="rule"></div>
+    <h2 class="h-lead">Scope, not just cause.</h2>
+    <p class="lead sec-intro">Visionary Software's method — get the real signal, process it honestly, hand it back cleaner or clearer than before — isn't limited to screen readers. It's the same engineering discipline that mastered records, and it now ships as three standalone tools for producers and engineers, sighted or not. These demos are real Web Audio, running the actual parameter logic of the shipped products, not a mockup video.</p>
+    <div class="figs">
+      <div class="f"><div class="num">112</div><div class="lab">Vibe + Character presets baked into Visionary Bus</div></div>
+      <div class="f"><div class="num">−130 dBFS</div><div class="lab">Bus's ported signature chain, measured against the original engine</div></div>
+      <div class="f"><div class="num">13</div><div class="lab">Live-modulated lanes in Visionary Slice</div></div>
+      <div class="f"><div class="num">150+</div><div class="lab">Factory presets across 18 genre-grounded banks in Slice</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MASTERING SUITE -->
+<section id="mastering" class="band">
+  <div class="wrap">
+    <div class="kicker"><span class="no">01</span><span class="eyebrow">Visionary Mastering Suite</span><hr class="rule"></div>
+    <div class="panel">
+      <div class="panel-head">
+        <h3>Auto-master, in one click.</h3>
+        <span class="panel-tag">Desktop app · macOS</span>
+      </div>
+      <p class="panel-sub">The flagship desktop mastering app: 56 name-matched Vibe presets, dozens of genre references, and an Auto-Master that makes real per-track decisions instead of one static chain for everything. Pick a Vibe below — it's driving a real EQ, saturation, and compression chain on a synthesized test loop, right here.</p>
+
+      <div class="ctrl-grid">
+        <div>
+          <div class="vibe-row" id="ms-vibes" role="group" aria-label="Mastering vibe"></div>
+          <p class="vibe-note" id="ms-note">Flat &amp; Neutral — the honest baseline, no coloring.</p>
+
+          <div class="playbar">
+            <button class="btn btn-primary btn-sm" id="ms-play" type="button">▶ Play test loop</button>
+            <div class="abgroup" role="group" aria-label="A/B compare">
+              <button type="button" id="ms-raw" class="on">Raw</button>
+              <button type="button" id="ms-mastered">Mastered</button>
+            </div>
+            <span class="status" id="ms-status">Ready</span>
+          </div>
+
+          <div class="meter">
+            <div class="mrow"><span>Loudness</span><div class="track"><i id="ms-lufs-bar"></i></div><span class="mval" id="ms-lufs-val">–24 LUFS</span></div>
+            <div class="mrow"><span>Target</span><div class="track"><i id="ms-target-bar" style="background:var(--green)"></i></div><span class="mval" id="ms-target-val">–14 LUFS</span></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="eqwrap">
+            <canvas id="ms-eq" width="560" height="150" role="img" aria-label="Illustrative EQ curve for the selected vibe"></canvas>
+          </div>
+          <div class="eqcap"><span>60Hz</span><span>250Hz</span><span>1kHz</span><span>4kHz</span><span>12kHz</span></div>
+        </div>
+      </div>
+      <p class="noteline">This demo drives a real Web Audio EQ + saturation + compressor chain from each Vibe's actual character mapping (sat/width/air/etc. — see the shipped engine's <code>VIBE_FINGERPRINT</code> table). The EQ curve is illustrative of that mapping, not a pixel-exact readout of the desktop app's own chart. The full app carries 56 Vibes and dozens more genre references, plus per-track Auto-Master decisions this single-loop demo can't show.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VISIONARY BUS -->
+<section id="bus">
+  <div class="wrap">
+    <div class="kicker"><span class="no">02</span><span class="eyebrow">Visionary Bus</span><hr class="rule"></div>
+    <div class="panel">
+      <div class="panel-head">
+        <h3>The mastering chain, on any DAW's master bus.</h3>
+        <span class="panel-tag">VST3 · AU · Standalone</span>
+      </div>
+      <p class="panel-sub">Visionary Bus ports the Mastering Suite's entire signature chain into a real-time plugin — parity-tested against the original engine to −130 dBFS. It's a controls-only insert on purpose: no custom GUI to fight a screen reader, every parameter lands in the host's own accessible FX panel. Try the same Vibe library, plus the Amount macro that blends it in.</p>
+
+      <div class="ctrl-grid">
+        <div>
+          <div class="vibe-row" id="bus-vibes" role="group" aria-label="Bus vibe"></div>
+
+          <div class="dial">
+            <label for="bus-amount">Amount macro <b id="bus-amount-val">60%</b></label>
+            <input type="range" id="bus-amount" min="0" max="100" value="60">
+          </div>
+          <div class="dial">
+            <label for="bus-drive">Input drive <b id="bus-drive-val">25%</b></label>
+            <input type="range" id="bus-drive" min="0" max="100" value="25">
+          </div>
+
+          <div class="playbar">
+            <button class="btn btn-primary btn-sm" id="bus-play" type="button">▶ Play test loop</button>
+            <span class="status" id="bus-status">Ready</span>
+          </div>
+        </div>
+
+        <div>
+          <p class="eyebrow" style="margin-bottom:12px">Signal chain</p>
+          <div class="chain-row">
+            <span class="stg hi">Input Drive</span><span class="arrow">→</span>
+            <span class="stg hi">Tone EQ</span><span class="arrow">→</span>
+            <span class="stg">10-Band</span><span class="arrow">→</span>
+            <span class="stg hi">Glue Comp</span><span class="arrow">→</span>
+            <span class="stg hi">Saturation</span><span class="arrow">→</span>
+            <span class="stg">Maximizer</span><span class="arrow">→</span>
+            <span class="stg">Output</span>
+          </div>
+          <p class="noteline" style="margin-top:18px; border-top:0; padding-top:0">Highlighted stages are live in this demo (drive, tone EQ, glue compression, saturation). The shipped plugin runs the full 31-stage chain — 10-band EQ, multiband, dynamic EQ, width, transient shaping, de-esser, exciter, console voicing, and a look-ahead maximizer — with 56 Vibe and 56 Character presets, each with an Amount macro that layers in at DSP time, exactly as it does here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIONARY SLICE -->
+<section id="slice" class="band">
+  <div class="wrap">
+    <div class="kicker"><span class="no">03</span><span class="eyebrow">Visionary Slice</span><hr class="rule"></div>
+    <div class="panel">
+      <div class="panel-head">
+        <h3>13 lanes. Any rhythm, no MIDI.</h3>
+        <span class="panel-tag">VST3 · AU · Standalone</span>
+      </div>
+      <p class="panel-sub">Slice fuses what three separate plugins do — drawable modulation, time/half-time effects, and glitch-stutter editing — into 13 lanes, each just a Shape, a Rate, and a Depth. No MIDI, no drawing: everything locks to host tempo, and the engine computes every lane's value live from its shape and phase — exactly what the bars below are doing. Volume, Filter, Pan, and Drive are wired to real audio here; the rest animate live exactly as the engine computes them.</p>
+
+      <div class="playbar">
+        <button class="btn btn-primary btn-sm" id="sl-play" type="button">▶ Play pattern</button>
+        <button class="btn btn-ghost btn-sm" id="sl-random" type="button">🎲 Randomize</button>
+        <span class="status" id="sl-status">Ready</span>
+      </div>
+
+      <div class="lane-grid" id="sl-lanes"></div>
+      <p class="noteline">The shipped plugin's full shape set includes Hold, Gate, Off-beat, Ramp Up/Down, Sine, Pump, three Euclidean densities, Random, Accelerate, and four eccentric shapes (Stab, Trill, Steps, Chaos) — this demo uses a representative subset. Rate range here is 1/16–1/2; the shipped plugin runs 1/32 to 4 bars, including triplet grids for jersey and trap feels.</p>
+    </div>
+  </div>
+</section>
+
+<div class="pquote wrap" style="margin-top:0"><p>Three doors opened by disability. A fourth kind of door, opened by craft alone — the same engineering, sold to anyone who masters, mixes, or produces.</p></div>
+
+<!-- CLOSE -->
+<section class="invite band">
+  <div class="wrap">
+    <div class="split2">
+      <div>
+        <span class="eyebrow">Part of the same company</span>
+        <h2 style="margin-top:14px">One studio. <em>Two audiences, one craft.</em></h2>
+        <p class="lead">Visionary Software builds for the world; the access line is where it started and where its edge is sharpest today. The studio line is the proof this isn't a one-trick engineering shop — it's a company that ships professional audio software, period.</p>
+      </div>
+      <div class="contact-card">
+        <span class="eyebrow">Get in touch</span>
+        <a class="btn btn-primary" href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/raise.html">Read the full investor brief →</a>
+        <a class="btn btn-ghost" href="mailto:breezywonderofficial@gmail.com?subject=Visionary%20Software%20%E2%80%94%20Studio%20Line">Start a conversation</a>
+        <div class="row"><span>Founder</span><span>Leroy Abraham Junior</span></div>
+        <div class="row"><span>Email</span><a href="mailto:breezywonderofficial@gmail.com">breezywonderofficial@gmail.com</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footrow">
+    <span>Visionary Software LLC — building for the world, starting with the blind</span>
+    <span>Studio line · Interactive demos</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ============ shared audio engine ============ */
+var ctx = null;
+function getCtx(){
+  if(!ctx){ ctx = new (window.AudioContext||window.webkitAudioContext)(); }
+  if(ctx.state === "suspended") ctx.resume();
+  return ctx;
+}
+var noiseBufCache = null;
+function noiseBuf(c){
+  if(noiseBufCache) return noiseBufCache;
+  var buf = c.createBuffer(1, c.sampleRate*1.0, c.sampleRate);
+  var d = buf.getChannelData(0);
+  for(var i=0;i<d.length;i++) d[i] = Math.random()*2-1;
+  noiseBufCache = buf;
+  return buf;
+}
+function kick(c, dest, t){
+  var o=c.createOscillator(); o.type="sine";
+  var g=c.createGain();
+  o.frequency.setValueAtTime(150,t);
+  o.frequency.exponentialRampToValueAtTime(45,t+0.12);
+  g.gain.setValueAtTime(0.9,t);
+  g.gain.exponentialRampToValueAtTime(0.001,t+0.26);
+  o.connect(g); g.connect(dest);
+  o.start(t); o.stop(t+0.28);
+}
+function snare(c, dest, t){
+  var src=c.createBufferSource(); src.buffer=noiseBuf(c);
+  var bp=c.createBiquadFilter(); bp.type="bandpass"; bp.frequency.value=1800; bp.Q.value=0.7;
+  var g=c.createGain();
+  g.gain.setValueAtTime(0.55,t);
+  g.gain.exponentialRampToValueAtTime(0.001,t+0.17);
+  src.connect(bp); bp.connect(g); g.connect(dest);
+  src.start(t); src.stop(t+0.19);
+}
+function hat(c, dest, t, open){
+  var src=c.createBufferSource(); src.buffer=noiseBuf(c);
+  var hp=c.createBiquadFilter(); hp.type="highpass"; hp.frequency.value=7500;
+  var g=c.createGain();
+  var dur = open?0.22:0.045;
+  g.gain.setValueAtTime(0.28,t);
+  g.gain.exponentialRampToValueAtTime(0.001,t+dur);
+  src.connect(hp); hp.connect(g); g.connect(dest);
+  src.start(t); src.stop(t+dur+0.02);
+}
+function bassNote(c, dest, t, freq, dur){
+  var o=c.createOscillator(); o.type="sawtooth"; o.frequency.value=freq;
+  var lp=c.createBiquadFilter(); lp.type="lowpass"; lp.frequency.value=420;
+  var g=c.createGain();
+  g.gain.setValueAtTime(0.0001,t);
+  g.gain.exponentialRampToValueAtTime(0.42,t+0.02);
+  g.gain.exponentialRampToValueAtTime(0.001,t+dur);
+  o.connect(lp); lp.connect(g); g.connect(dest);
+  o.start(t); o.stop(t+dur+0.02);
+}
+
+function makeScheduler(c, bpm, onStep){
+  var secondsPerStep = 60/bpm/4;
+  var nextStepTime = 0, step = 0, timerID = null;
+  var lookahead = 25, scheduleAheadTime = 0.12;
+  function tick(){
+    while(nextStepTime < c.currentTime + scheduleAheadTime){
+      onStep(step, nextStepTime, secondsPerStep);
+      nextStepTime += secondsPerStep;
+      step = (step+1) % 16;
+    }
+    timerID = setTimeout(tick, lookahead);
+  }
+  return {
+    start: function(){ step=0; nextStepTime = c.currentTime + 0.06; tick(); },
+    stop: function(){ if(timerID) clearTimeout(timerID); timerID=null; },
+    secondsPerStep: secondsPerStep
+  };
+}
+
+function satCurve(amount){
+  var n=1024, curve=new Float32Array(n);
+  var k = Math.max(amount,0)*22;
+  var norm = Math.tanh(1+k) || 1;
+  for(var i=0;i<n;i++){
+    var x = i/(n-1)*2-1;
+    curve[i] = Math.tanh((1+k)*x)/norm;
+  }
+  return curve;
+}
+
+var activeStop = null;
+function stopOthers(mine){
+  if(activeStop && activeStop!==mine){ activeStop(); }
+  activeStop = mine;
+}
+
+/* ============ shape engine (shared with Slice + visual bars) ============ */
+var EUCLID = {
+  e3: [1,0,0,1,0,0,1,0],
+  e5: [1,0,1,1,0,1,1,0],
+  e7: [1,1,0,1,1,1,1,1]
+};
+function shapeValue(shape, phase){
+  switch(shape){
+    case "hold": return 1;
+    case "gate": return phase<0.5?1:0;
+    case "offbeat": return phase<0.5?0:1;
+    case "rampup": return phase;
+    case "rampdown": return 1-phase;
+    case "sine": return (Math.sin(phase*2*Math.PI - Math.PI/2)+1)/2;
+    case "pump": return Math.exp(-phase*4.2);
+    case "accel":
+      var p2 = phase*phase;
+      return (Math.floor(p2*8)%2===0)?1:0.15;
+    case "e3": return EUCLID.e3[Math.floor(phase*8)%8];
+    case "e5": return EUCLID.e5[Math.floor(phase*8)%8];
+    case "e7": return EUCLID.e7[Math.floor(phase*8)%8];
+    case "random": return window.__rndTable && window.__rndTable[Math.floor(phase*8)%8];
+    default: return 1;
+  }
+}
+var SHAPES = [
+  ["hold","Hold"],["gate","Gate"],["offbeat","Off-beat"],["rampup","Ramp Up"],
+  ["rampdown","Ramp Down"],["sine","Sine"],["pump","Pump"],["e3","Euclid 3"],
+  ["e5","Euclid 5"],["e7","Euclid 7"],["random","Random"],["accel","Accelerate"]
+];
+var RATES = [["1","1/16"],["2","1/8"],["4","1/4"],["8","1/2"]];
+
+/* regenerate the random table every ~2s so "Random" lanes actually change */
+window.__rndTable = [1,0,1,1,0,0,1,0];
+setInterval(function(){
+  window.__rndTable = [0,0,0,0,0,0,0,0].map(function(){return Math.random()>0.5?1:0;});
+}, 1800);
+
+/* ============ MASTERING SUITE PANEL ============ */
+(function(){
+  var VIBES = [
+    ["Flat & Neutral", {low:0,mid:0,high:0,sat:0.02,comp:2,lufsTarget:-16,note:"The honest baseline — no coloring."}],
+    ["Warm & Round", {low:2.6,mid:1.0,high:-1.6,sat:0.16,comp:2.6,lufsTarget:-14,note:"Low-mid body, silked-off top."}],
+    ["Silky Soul", {low:1.0,mid:-0.6,high:-2.2,sat:0.10,comp:2.3,lufsTarget:-14,note:"De-essed, smoothed highs."}],
+    ["Analog Tape", {low:1.6,mid:0.6,high:-2.6,sat:0.30,comp:3.2,lufsTarget:-13,note:"Tape-style saturation and roll-off."}],
+    ["Boom Bap", {low:3.6,mid:0.1,high:-1.0,sat:0.20,comp:4.0,lufsTarget:-11,note:"Punchy low end, transient snap."}],
+    ["Velvet", {low:3.1,mid:-1.0,high:-1.1,sat:0.13,comp:2.6,lufsTarget:-14,note:"Sub-forward, smooth top."}],
+    ["Percussion Snap", {low:-1.0,mid:1.4,high:2.1,sat:0.18,comp:3.6,lufsTarget:-10,note:"Bright, transient-forward."}]
+  ];
+  var vibesEl = document.getElementById("ms-vibes");
+  var noteEl = document.getElementById("ms-note");
+  var current = VIBES[0];
+  VIBES.forEach(function(v, i){
+    var b = document.createElement("button");
+    b.type="button"; b.className="vibe-btn"+(i===0?" on":""); b.textContent=v[0];
+    b.addEventListener("click", function(){
+      Array.prototype.forEach.call(vibesEl.children, function(el){el.classList.remove("on");});
+      b.classList.add("on");
+      current = v;
+      noteEl.textContent = v[0]+" — "+v[1].note;
+      drawEQ(v[1]);
+      applyVibe(v[1]);
+      animateMeters(v[1]);
+    });
+    vibesEl.appendChild(b);
+  });
+  noteEl.textContent = VIBES[0][0]+" — "+VIBES[0][1].note;
+
+  var cv = document.getElementById("ms-eq"), gctx = cv.getContext("2d");
+  function drawEQ(v){
+    var w=cv.width,h=cv.height; gctx.clearRect(0,0,w,h);
+    gctx.strokeStyle="rgba(255,255,255,.08)"; gctx.lineWidth=1;
+    [0.25,0.5,0.75].forEach(function(f){ gctx.beginPath(); gctx.moveTo(0,h*f); gctx.lineTo(w,h*f); gctx.stroke(); });
+    gctx.strokeStyle="rgba(255,255,255,.18)";
+    gctx.beginPath(); gctx.moveTo(0,h/2); gctx.lineTo(w,h/2); gctx.stroke();
+    var pts = [v.low, v.low*0.5, v.mid, (v.mid+v.high)/2, v.high];
+    gctx.beginPath(); gctx.lineWidth=2.4; gctx.strokeStyle="#EAD199";
+    pts.forEach(function(db,i){
+      var x = i/(pts.length-1)*w;
+      var y = h/2 - (db/8)*(h/2)*0.9;
+      if(i===0) gctx.moveTo(x,y); else gctx.lineTo(x,y);
+    });
+    gctx.stroke();
+    gctx.fillStyle="rgba(234,209,153,.14)";
+    gctx.lineTo(w,h); gctx.lineTo(0,h); gctx.closePath(); gctx.fill();
+  }
+  drawEQ(VIBES[0][1]);
+
+  var raw=document.getElementById("ms-raw"), mastered=document.getElementById("ms-mastered");
+  var mode = "raw";
+  raw.addEventListener("click", function(){ mode="raw"; raw.classList.add("on"); mastered.classList.remove("on"); setMix(); });
+  mastered.addEventListener("click", function(){ mode="mastered"; mastered.classList.add("on"); raw.classList.remove("on"); setMix(); });
+
+  var nodes = null;
+  function build(){
+    var c = getCtx();
+    var input = c.createGain();
+    var dryGain = c.createGain(), wetGain = c.createGain();
+    var low = c.createBiquadFilter(); low.type="lowshelf"; low.frequency.value=120;
+    var mid = c.createBiquadFilter(); mid.type="peaking"; mid.frequency.value=1000; mid.Q.value=0.7;
+    var high = c.createBiquadFilter(); high.type="highshelf"; high.frequency.value=6000;
+    var shaper = c.createWaveShaper(); shaper.curve = satCurve(0.1); shaper.oversample="2x";
+    var comp = c.createDynamicsCompressor();
+    var master = c.createGain(); master.gain.value=0.85;
+    input.connect(dryGain); dryGain.connect(master);
+    input.connect(low); low.connect(mid); mid.connect(high); high.connect(shaper); shaper.connect(comp); comp.connect(wetGain); wetGain.connect(master);
+    master.connect(c.destination);
+    dryGain.gain.value = 1; wetGain.gain.value = 0;
+    nodes = {c:c, input:input, dryGain:dryGain, wetGain:wetGain, low:low, mid:mid, high:high, shaper:shaper, comp:comp};
+    return nodes;
+  }
+  function applyVibe(v){
+    if(!nodes) return;
+    var n = nodes, t = n.c.currentTime;
+    n.low.gain.setTargetAtTime(v.low, t, 0.05);
+    n.mid.gain.setTargetAtTime(v.mid, t, 0.05);
+    n.high.gain.setTargetAtTime(v.high, t, 0.05);
+    n.shaper.curve = satCurve(v.sat);
+    n.comp.ratio.setTargetAtTime(v.comp, t, 0.05);
+    n.comp.threshold.setTargetAtTime(-22, t, 0.05);
+  }
+  function setMix(){
+    if(!nodes) return;
+    var t = nodes.c.currentTime;
+    if(mode==="mastered"){ nodes.dryGain.gain.setTargetAtTime(0,t,0.03); nodes.wetGain.gain.setTargetAtTime(1,t,0.03); }
+    else { nodes.dryGain.gain.setTargetAtTime(1,t,0.03); nodes.wetGain.gain.setTargetAtTime(0,t,0.03); }
+  }
+
+  var sched = null, playing = false;
+  var playBtn = document.getElementById("ms-play"), statusEl = document.getElementById("ms-status");
+  var pattern = { kick:[0,3,6,10], snare:[4,12], bassAt:[0,4,8,12], bassFreq:[55,55,73.42,65.41] };
+  playBtn.addEventListener("click", function(){
+    if(playing){
+      stopOthers(null); if(sched) sched.stop(); playing=false; playBtn.textContent="▶ Play test loop"; statusEl.innerHTML="Stopped";
+      return;
+    }
+    var c = getCtx();
+    if(!nodes) build();
+    applyVibe(current[1]); setMix();
+    sched = makeScheduler(c, 96, function(step, time){
+      hat(c, nodes.input, time, step===14);
+      if(pattern.kick.indexOf(step)>-1) kick(c, nodes.input, time);
+      if(pattern.snare.indexOf(step)>-1) snare(c, nodes.input, time);
+      var bi = pattern.bassAt.indexOf(step);
+      if(bi>-1) bassNote(c, nodes.input, time, pattern.bassFreq[bi], 0.85*sched.secondsPerStep*4);
+    });
+    sched.start(); playing=true; playBtn.textContent="■ Stop"; statusEl.innerHTML="Playing — <b>"+current[0]+"</b>";
+    stopOthers(function(){ if(sched) sched.stop(); playing=false; playBtn.textContent="▶ Play test loop"; statusEl.innerHTML="Stopped (switched demo)"; });
+  });
+
+  var lufsBar=document.getElementById("ms-lufs-bar"), lufsVal=document.getElementById("ms-lufs-val");
+  var targetBar=document.getElementById("ms-target-bar"), targetVal=document.getElementById("ms-target-val");
+  function animateMeters(v){
+    var pct = Math.min(100, Math.max(0, (v.lufsTarget + 30)/24*100));
+    targetBar.style.width = pct+"%"; targetVal.textContent = v.lufsTarget+" LUFS";
+    lufsBar.style.width = Math.max(6,(( -24 +30)/24*100))+"%"; lufsVal.textContent = "–24 LUFS (in)";
+  }
+  animateMeters(VIBES[0][1]);
+})();
+
+/* ============ BUS PANEL ============ */
+(function(){
+  var VIBES = [
+    ["Flat & Neutral", {low:0,mid:0,high:0,sat:0.02}],
+    ["Warm & Round", {low:2.6,mid:1.0,high:-1.6,sat:0.16}],
+    ["Silky Soul", {low:1.0,mid:-0.6,high:-2.2,sat:0.10}],
+    ["Analog Tape", {low:1.6,mid:0.6,high:-2.6,sat:0.30}],
+    ["Boom Bap", {low:3.6,mid:0.1,high:-1.0,sat:0.20}],
+    ["Velvet", {low:3.1,mid:-1.0,high:-1.1,sat:0.13}],
+    ["Percussion Snap", {low:-1.0,mid:1.4,high:2.1,sat:0.18}]
+  ];
+  var vibesEl = document.getElementById("bus-vibes");
+  var current = VIBES[0][1];
+  VIBES.forEach(function(v, i){
+    var b = document.createElement("button");
+    b.type="button"; b.className="vibe-btn"+(i===0?" on":""); b.textContent=v[0];
+    b.addEventListener("click", function(){
+      Array.prototype.forEach.call(vibesEl.children, function(el){el.classList.remove("on");});
+      b.classList.add("on");
+      current = v[1];
+      applyAll();
+    });
+    vibesEl.appendChild(b);
+  });
+
+  var amountEl = document.getElementById("bus-amount"), amountVal = document.getElementById("bus-amount-val");
+  var driveEl = document.getElementById("bus-drive"), driveVal = document.getElementById("bus-drive-val");
+  amountEl.addEventListener("input", function(){ amountVal.textContent = amountEl.value+"%"; applyAll(); });
+  driveEl.addEventListener("input", function(){ driveVal.textContent = driveEl.value+"%"; applyAll(); });
+
+  var nodes = null;
+  function build(){
+    var c = getCtx();
+    var input = c.createGain();
+    var dryGain = c.createGain(), wetGain = c.createGain();
+    var low = c.createBiquadFilter(); low.type="lowshelf"; low.frequency.value=120;
+    var mid = c.createBiquadFilter(); mid.type="peaking"; mid.frequency.value=1000; mid.Q.value=0.7;
+    var high = c.createBiquadFilter(); high.type="highshelf"; high.frequency.value=6000;
+    var shaper = c.createWaveShaper(); shaper.curve = satCurve(0.1); shaper.oversample="2x";
+    var comp = c.createDynamicsCompressor(); comp.ratio.value=3; comp.threshold.value=-20;
+    var master = c.createGain(); master.gain.value=0.85;
+    input.connect(dryGain); dryGain.connect(master);
+    input.connect(low); low.connect(mid); mid.connect(high); high.connect(shaper); shaper.connect(comp); comp.connect(wetGain); wetGain.connect(master);
+    master.connect(c.destination);
+    nodes = {c:c, input:input, dryGain:dryGain, wetGain:wetGain, low:low, mid:mid, high:high, shaper:shaper, comp:comp};
+    return nodes;
+  }
+  function applyAll(){
+    if(!nodes) return;
+    var n=nodes, t=n.c.currentTime;
+    var amt = amountEl.value/100, drv = driveEl.value/100;
+    n.low.gain.setTargetAtTime(current.low, t, 0.05);
+    n.mid.gain.setTargetAtTime(current.mid, t, 0.05);
+    n.high.gain.setTargetAtTime(current.high, t, 0.05);
+    n.shaper.curve = satCurve(current.sat + drv*0.4);
+    n.dryGain.gain.setTargetAtTime(1-amt, t, 0.03);
+    n.wetGain.gain.setTargetAtTime(amt, t, 0.03);
+  }
+
+  var sched=null, playing=false;
+  var playBtn = document.getElementById("bus-play"), statusEl = document.getElementById("bus-status");
+  var pattern = { kick:[0,3,6,10], snare:[4,12], bassAt:[0,4,8,12], bassFreq:[55,55,73.42,65.41] };
+  playBtn.addEventListener("click", function(){
+    if(playing){
+      stopOthers(null); if(sched) sched.stop(); playing=false; playBtn.textContent="▶ Play test loop"; statusEl.textContent="Stopped";
+      return;
+    }
+    var c = getCtx();
+    if(!nodes) build();
+    applyAll();
+    sched = makeScheduler(c, 96, function(step, time){
+      hat(c, nodes.input, time, step===14);
+      if(pattern.kick.indexOf(step)>-1) kick(c, nodes.input, time);
+      if(pattern.snare.indexOf(step)>-1) snare(c, nodes.input, time);
+      var bi = pattern.bassAt.indexOf(step);
+      if(bi>-1) bassNote(c, nodes.input, time, pattern.bassFreq[bi], 0.85*sched.secondsPerStep*4);
+    });
+    sched.start(); playing=true; playBtn.textContent="■ Stop"; statusEl.textContent="Playing";
+    stopOthers(function(){ if(sched) sched.stop(); playing=false; playBtn.textContent="▶ Play test loop"; statusEl.textContent="Stopped (switched demo)"; });
+  });
+})();
+
+/* ============ SLICE PANEL ============ */
+(function(){
+  var LANES = [
+    ["vol","Volume","live"], ["filt","Filter","live"], ["pan","Pan","live"], ["drive","Drive","live"],
+    ["time","Time",""], ["half","HalfTime",""], ["pitch","Pitch",""], ["crush","Crush",""],
+    ["liquid","Liquid",""], ["noise","Noise",""], ["echo","Echo",""], ["reverb","Reverb",""], ["width","Width",""]
+  ];
+  var DEFAULTS = {
+    vol:{on:true,shape:"gate",rate:"2"}, filt:{on:true,shape:"sine",rate:"4"},
+    pan:{on:true,shape:"sine",rate:"8"}, drive:{on:false,shape:"pump",rate:"4"},
+    time:{on:false,shape:"hold",rate:"4"}, half:{on:false,shape:"hold",rate:"8"},
+    pitch:{on:false,shape:"hold",rate:"4"}, crush:{on:false,shape:"gate",rate:"2"},
+    liquid:{on:false,shape:"sine",rate:"8"}, noise:{on:false,shape:"pump",rate:"2"},
+    echo:{on:true,shape:"offbeat",rate:"4"}, reverb:{on:false,shape:"rampup",rate:"8"},
+    width:{on:false,shape:"sine",rate:"8"}
+  };
+  var state = JSON.parse(JSON.stringify(DEFAULTS));
+  var laneGrid = document.getElementById("sl-lanes");
+  var rows = {};
+
+  LANES.forEach(function(L){
+    var key=L[0], name=L[1], live=L[2];
+    var row = document.createElement("div"); row.className="lane";
+    var nm = document.createElement("div"); nm.className="nm";
+    nm.innerHTML = name + (live?'<small><span class="live-tag">● live audio</span></small>':'<small>visual</small>');
+    var onwrap = document.createElement("label"); onwrap.className="onwrap";
+    var onbox = document.createElement("input"); onbox.type="checkbox"; onbox.checked = state[key].on;
+    onbox.addEventListener("change", function(){ state[key].on = onbox.checked; row.classList.toggle("dim", !onbox.checked); });
+    onwrap.appendChild(onbox); onwrap.appendChild(document.createTextNode(" On"));
+
+    var shapeSel = document.createElement("select"); shapeSel.setAttribute("aria-label", name+" shape");
+    SHAPES.forEach(function(s){ var o=document.createElement("option"); o.value=s[0]; o.textContent=s[1]; if(s[0]===state[key].shape) o.selected=true; shapeSel.appendChild(o); });
+    shapeSel.addEventListener("change", function(){ state[key].shape = shapeSel.value; });
+
+    var rateSel = document.createElement("select"); rateSel.setAttribute("aria-label", name+" rate");
+    RATES.forEach(function(r){ var o=document.createElement("option"); o.value=r[0]; o.textContent=r[1]; if(r[0]===state[key].rate) o.selected=true; rateSel.appendChild(o); });
+    rateSel.addEventListener("change", function(){ state[key].rate = rateSel.value; });
+
+    var lvl = document.createElement("div"); lvl.className="lvl";
+    var lvlI = document.createElement("i");
+    lvl.appendChild(lvlI);
+
+    row.appendChild(nm); row.appendChild(onwrap); row.appendChild(shapeSel); row.appendChild(rateSel); row.appendChild(lvl);
+    if(!state[key].on) row.classList.add("dim");
+    laneGrid.appendChild(row);
+    rows[key] = {row:row, onbox:onbox, shapeSel:shapeSel, rateSel:rateSel, lvlI:lvlI};
+  });
+
+  var randomBtn = document.getElementById("sl-random");
+  var ARCHETYPES = ["gate","sine","offbeat","pump","rampup","e3","e5"];
+  randomBtn.addEventListener("click", function(){
+    var keys = Object.keys(state);
+    keys.forEach(function(k){ state[k].on=false; });
+    var n = 3 + Math.floor(Math.random()*4);
+    var picked = keys.slice().sort(function(){return Math.random()-0.5;}).slice(0,n);
+    picked.forEach(function(k){
+      state[k].on = true;
+      state[k].shape = ARCHETYPES[Math.floor(Math.random()*ARCHETYPES.length)];
+      state[k].rate = RATES[Math.floor(Math.random()*RATES.length)][0];
+    });
+    Object.keys(rows).forEach(function(k){
+      var r = rows[k];
+      r.onbox.checked = state[k].on;
+      r.row.classList.toggle("dim", !state[k].on);
+      r.shapeSel.value = state[k].shape;
+      r.rateSel.value = state[k].rate;
+    });
+  });
+
+  var nodes = null;
+  function build(){
+    var c = getCtx();
+    var bus = c.createGain();
+    var filt = c.createBiquadFilter(); filt.type="lowpass"; filt.frequency.value=8000; filt.Q.value=0.6;
+    var shaper = c.createWaveShaper(); shaper.curve = satCurve(0.35); shaper.oversample="2x";
+    var driveDry = c.createGain(), driveWet = c.createGain();
+    var pan = c.createStereoPanner();
+    var vol = c.createGain();
+    var master = c.createGain(); master.gain.value=0.8;
+    bus.connect(filt);
+    filt.connect(driveDry); driveDry.connect(pan);
+    filt.connect(shaper); shaper.connect(driveWet); driveWet.connect(pan);
+    pan.connect(vol); vol.connect(master); master.connect(c.destination);
+    driveDry.gain.value=1; driveWet.gain.value=0;
+    nodes = {c:c, bus:bus, filt:filt, driveDry:driveDry, driveWet:driveWet, pan:pan, vol:vol};
+    return nodes;
+  }
+
+  var sched=null, playing=false, raf=null;
+  var playBtn = document.getElementById("sl-play"), statusEl = document.getElementById("sl-status");
+  var drumPattern = { kick:[0,3,6,8,11], snare:[4,12], hatOpen:14 };
+
+  function stopVisual(){ if(raf){ cancelAnimationFrame(raf); raf=null; } }
+  function frame(){
+    var c = nodes ? nodes.c : null;
+    var now = c ? c.currentTime : (performance.now()/1000);
+    Object.keys(rows).forEach(function(k){
+      var s = state[k], r = rows[k];
+      var winLen = (parseInt(s.rate,10)) * (sched?sched.secondsPerStep:0.15);
+      var phase = winLen>0 ? (now % winLen)/winLen : 0;
+      var v = s.on ? shapeValue(s.shape, phase) : 0;
+      r.lvlI.style.width = Math.round(v*100)+"%";
+      if(nodes){
+        if(k==="vol") nodes.vol.gain.setTargetAtTime(s.on ? 0.15+0.85*v : 1, now, 0.01);
+        if(k==="filt") nodes.filt.frequency.setTargetAtTime(s.on ? 250*Math.pow(32, v) : 8000, now, 0.02);
+        if(k==="pan") nodes.pan.pan.setTargetAtTime(s.on ? (v*2-1) : 0, now, 0.02);
+        if(k==="drive"){
+          var amt = s.on ? v : 0;
+          nodes.driveDry.gain.setTargetAtTime(1-amt, now, 0.02);
+          nodes.driveWet.gain.setTargetAtTime(amt, now, 0.02);
+        }
+      }
+    });
+    raf = requestAnimationFrame(frame);
+  }
+
+  playBtn.addEventListener("click", function(){
+    if(playing){
+      stopOthers(null);
+      if(sched) sched.stop(); stopVisual(); playing=false; playBtn.textContent="▶ Play pattern"; statusEl.textContent="Stopped";
+      return;
+    }
+    var c = getCtx();
+    if(!nodes) build();
+    sched = makeScheduler(c, 100, function(step, time){
+      hat(c, nodes.bus, time, step===drumPattern.hatOpen);
+      if(drumPattern.kick.indexOf(step)>-1) kick(c, nodes.bus, time);
+      if(drumPattern.snare.indexOf(step)>-1) snare(c, nodes.bus, time);
+    });
+    sched.start(); frame(); playing=true; playBtn.textContent="■ Stop"; statusEl.textContent="Playing";
+    stopOthers(function(){ if(sched) sched.stop(); stopVisual(); playing=false; playBtn.textContent="▶ Play pattern"; statusEl.textContent="Stopped (switched demo)"; });
+  });
+})();
+
+})();
+</script>

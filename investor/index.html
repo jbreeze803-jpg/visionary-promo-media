@@ -1,0 +1,336 @@
+<title>AccessBridge Product Brief</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Product brief for AccessBridge — Serato DJ Pro and djay Pro, made fully usable by ear. The gap, the fix, and what's shipped, in testers' hands today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#0B0F1E; --ink-2:#0E1426; --panel:#121A2E; --panel-2:#161F38;
+    --line:#212B44; --line-2:#303B58;
+    --text:#ECE8DC; --muted:#9DA6BB; --muted-2:#727C96;
+    --gold:#D9B675; --gold-2:#EAD199;
+    --grad:linear-gradient(100deg,#4FE3F2,#6AA8FF,#B067F9);
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Public Sans',system-ui,-apple-system,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--ink); color:var(--text); font-family:var(--sans); font-size:17.5px; line-height:1.72; -webkit-font-smoothing:antialiased; letter-spacing:.005em}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(22px,5vw,44px)}
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--serif); font-weight:500; line-height:1.12; margin:0; font-optical-sizing:auto; letter-spacing:-.01em; text-wrap:balance}
+  p{margin:0}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); font-weight:500}
+  .lead{font-size:clamp(18px,2.1vw,21px); color:var(--muted); max-width:60ch; line-height:1.68}
+  .lead strong{color:var(--text); font-weight:600}
+  .rule{height:1px; background:var(--line); border:0; margin:0}
+  .rule-grad{height:2px; border:0; background:var(--grad); opacity:.7; border-radius:2px; position:relative; overflow:hidden}
+  .rule-grad::after{content:""; position:absolute; top:0; left:-45%; width:45%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent); animation:sweep 7s ease-in-out infinite}
+  @keyframes sweep{0%{left:-45%} 55%,100%{left:130%}}
+
+  header{position:sticky; top:0; z-index:40; background:rgba(11,15,30,.9); backdrop-filter:blur(14px); border-bottom:1px solid var(--line)}
+  .nav{display:flex; align-items:center; gap:18px; height:64px}
+  .brand{display:flex; align-items:center; gap:11px; text-decoration:none}
+  .brand svg{width:28px; height:28px; flex:none}
+  .brand b{font-family:var(--mono); font-weight:500; font-size:13px; letter-spacing:.2em; text-transform:uppercase}
+  .nav .meta{font-family:var(--mono); font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted-2)}
+  .nav .meta a{color:var(--gold); text-decoration:none; position:relative}
+  .nav .meta a::after{content:""; position:absolute; left:0; bottom:-2px; width:100%; height:1px; background:currentColor; transform:scaleX(0); transform-origin:left; transition:transform .25s ease}
+  .nav .meta a:hover::after{transform:scaleX(1)}
+  @media (max-width:640px){.nav .meta{display:none}}
+
+  .btn{display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-weight:600; font-size:14.5px; letter-spacing:.02em; text-decoration:none; padding:13px 24px; border-radius:2px; border:1px solid transparent; transition:background .2s,color .2s,border-color .2s,transform .18s ease}
+  .btn-primary{background:var(--gold); color:#1a1206}
+  .btn-primary:hover{background:var(--gold-2); transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line-2); color:var(--text)}
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold-2)}
+
+  .cover{padding:clamp(56px,11vh,120px) 0 clamp(48px,7vh,84px)}
+  .cover .eyebrow{display:block; margin-bottom:26px}
+  .cover h1{font-size:clamp(40px,7vw,78px); font-weight:500; letter-spacing:-.025em; max-width:16ch}
+  .cover h1 em{font-style:italic; color:var(--gold-2)}
+  .cover .lead{margin-top:28px; font-size:clamp(19px,2.3vw,23px); max-width:60ch}
+  .cover-meta{display:flex; flex-wrap:wrap; gap:14px 40px; margin-top:40px; padding-top:26px; border-top:1px solid var(--line); font-family:var(--mono); font-size:13px; color:var(--muted)}
+  .cover-meta b{color:var(--text); font-weight:500}
+  .cover-cta{display:flex; flex-wrap:wrap; gap:14px; margin-top:34px}
+
+  section{padding:clamp(52px,8vh,92px) 0}
+  .band{background:var(--ink-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .kicker{display:flex; align-items:baseline; gap:16px; margin-bottom:28px}
+  .kicker .no{font-family:var(--mono); font-size:12px; color:var(--gold); letter-spacing:.16em}
+  .kicker .rule{flex:1; align-self:center}
+  .h-lead{max-width:26ch}
+  h2{font-size:clamp(28px,4.2vw,44px); font-weight:500; letter-spacing:-.018em}
+  .sec-intro{margin-top:18px}
+
+  .points{list-style:none; margin:14px 0 0; padding:0; border-top:1px solid var(--line)}
+  .points li{padding:19px 0; border-bottom:1px solid var(--line); color:var(--muted); font-size:15.5px}
+  .points li b{color:var(--text); font-weight:600; font-family:var(--serif); font-size:17px; display:block; margin-bottom:5px}
+
+  .figs{display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin:32px 0 6px; border:1px solid var(--line); border-radius:3px}
+  .figs .f{padding:28px 24px; border-right:1px solid var(--line)}
+  .figs .f:last-child{border-right:0}
+  .figs .f .num{font-family:var(--mono); font-weight:500; font-size:clamp(28px,4vw,40px); color:var(--gold-2); letter-spacing:-.02em; line-height:1}
+  .figs .f .lab{margin-top:11px; color:var(--muted); font-size:14px; line-height:1.5}
+  @media (max-width:680px){.figs{grid-template-columns:1fr}.figs .f{border-right:0; border-bottom:1px solid var(--line)}.figs .f:last-child{border-bottom:0}}
+
+  .trip{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:6px}
+  @media (max-width:760px){.trip{grid-template-columns:1fr; gap:24px}}
+  .trip .c h3{font-size:19px; font-weight:500; display:flex; align-items:baseline; gap:10px}
+  .trip .c h3 .i{font-family:var(--mono); font-size:12px; color:var(--gold)}
+  .trip .c p{color:var(--muted); margin-top:9px; font-size:15px}
+  .trip .c .hr{height:1px; background:var(--line); margin-top:16px}
+
+  .feats{columns:2; column-gap:44px; margin-top:6px}
+  @media (max-width:640px){.feats{columns:1}}
+  .feats .it{break-inside:avoid; display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--line)}
+  .feats .it .tick{color:var(--gold); font-family:var(--mono); flex:none; line-height:1.6}
+  .feats .it b{font-weight:600; font-size:15.5px}
+  .feats .it span{display:block; color:var(--muted); font-size:14px; margin-top:2px}
+
+  .pquote{border-left:2px solid var(--gold); padding:4px 0 4px 26px; margin:6px 0}
+  .pquote p{font-family:var(--serif); font-style:italic; font-size:clamp(20px,2.7vw,28px); font-weight:400; line-height:1.4; color:var(--text)}
+  .pquote cite{display:block; margin-top:14px; font-style:normal; font-family:var(--mono); font-size:12.5px; letter-spacing:.05em; color:var(--muted)}
+
+  .vlead{border:1px solid var(--line-2); border-radius:3px; overflow:hidden; background:#05070d; margin-top:8px}
+  .vlead video{display:block; width:100%; height:auto}
+  .vcap{display:flex; flex-wrap:wrap; gap:6px 16px; align-items:baseline; margin:14px 0 0}
+  .vcap b{font-family:var(--serif); font-weight:500; font-size:17px} .vcap span{color:var(--muted-2); font-family:var(--mono); font-size:12px}
+
+  .stage{border:1px solid var(--gold); border-radius:3px; padding:clamp(22px,3.4vw,34px); margin-top:36px; background:linear-gradient(180deg,rgba(217,182,117,.06),transparent)}
+  .stage .eyebrow{color:var(--gold)}
+  .stage h3{font-family:var(--serif); font-weight:500; font-size:clamp(21px,2.9vw,28px); margin:11px 0 0; letter-spacing:-.01em}
+  .stage p{color:var(--muted); margin-top:13px; max-width:68ch; font-size:15.5px}
+  .stage .igrid{display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:24px; border-top:1px solid var(--line)}
+  .stage .g{padding:17px 15px 5px; border-right:1px solid var(--line)}
+  .stage .g:last-child{border-right:0}
+  .stage .g b{display:block; font-family:var(--mono); font-weight:500; font-size:clamp(18px,2.3vw,24px); color:var(--gold-2); letter-spacing:-.01em; font-variant-numeric:tabular-nums}
+  .stage .g span{display:block; color:var(--muted); font-size:12.5px; margin-top:6px; line-height:1.45}
+  @media (max-width:680px){.stage .igrid{grid-template-columns:1fr 1fr}.stage .g{border-bottom:1px solid var(--line)}.stage .g:nth-child(2){border-right:0}}
+
+  .alloc{border-top:1px solid var(--line-2); margin-top:16px}
+  .alloc .r{display:grid; grid-template-columns:14px 1fr 14px; gap:16px; align-items:center; padding:15px 0; border-bottom:1px solid var(--line)}
+  .alloc button.r{width:100%; background:none; border:none; color:inherit; font:inherit; text-align:left; cursor:pointer; transition:background .18s}
+  .alloc button.r:hover{background:rgba(217,182,117,.05)}
+  .alloc .r .sw{width:12px; height:12px; border-radius:2px; background:var(--gold)}
+  .alloc .r .nm{font-weight:600; font-size:15.5px}
+  .alloc .r .nm small{display:block; color:var(--muted-2); font-weight:400; font-size:12.5px; margin-top:2px}
+  .alloc .r .cv{justify-self:end; color:var(--muted-2); font-size:11px; transition:transform .22s,color .2s}
+  .alloc-item.open .cv{transform:rotate(90deg); color:var(--gold)}
+  .r-exp{color:var(--muted); font-size:14.5px; line-height:1.55; padding:12px 0 18px 30px; border-bottom:1px solid var(--line)}
+  .r-exp ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:7px}
+  .r-exp ul li{display:flex; gap:10px; color:var(--muted); font-size:13.5px; line-height:1.5}
+  .r-exp ul li::before{content:"—"; color:var(--gold); flex:none}
+  .r-exp ul li b{color:var(--text); font-weight:600}
+
+  .invite{padding:clamp(56px,9vh,96px) 0}
+  .invite .split2{display:grid; grid-template-columns:1.3fr .7fr; gap:44px; align-items:start}
+  @media (max-width:760px){.invite .split2{grid-template-columns:1fr; gap:30px}}
+  .invite h2{font-size:clamp(28px,4.2vw,40px); max-width:16ch}
+  .invite h2 em{font-style:italic; color:var(--gold-2)}
+  .invite .lead{margin-top:18px; max-width:52ch}
+  .contact-card{border:1px solid var(--line-2); border-radius:3px; padding:26px}
+  .contact-card .eyebrow{display:block; margin-bottom:14px}
+  .contact-card a.btn{width:100%; justify-content:center; margin-bottom:14px}
+  .contact-card .row{display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-top:1px solid var(--line); font-family:var(--mono); font-size:12.5px}
+  .contact-card .row:first-of-type{border-top:none; margin-top:4px}
+  .contact-card .row span:first-child{color:var(--muted-2)}
+  .contact-card .row a{color:var(--gold); text-decoration:none}
+
+  footer{border-top:1px solid var(--line); padding:28px 0; color:var(--muted-2); font-size:12.5px; font-family:var(--mono); letter-spacing:.03em}
+  .footrow{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px}
+
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){ .rule-grad::after{display:none} }
+</style>
+
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="hl" x1="10" y1="60" x2="110" y2="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4FE3F2"/><stop offset=".5" stop-color="#6AA8FF"/><stop offset="1" stop-color="#B067F9"/></linearGradient><radialGradient id="hi" cx=".42" cy=".4" r=".75"><stop offset="0" stop-color="#7BECFB"/><stop offset=".45" stop-color="#6AA8FF"/><stop offset="1" stop-color="#B067F9"/></radialGradient><radialGradient id="hg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE39A"/><stop offset="1" stop-color="#D9B675"/></radialGradient></defs><path d="M8 60 C 30 28, 90 28, 112 60 C 90 92, 30 92, 8 60 Z" stroke="url(#hl)" stroke-width="5" stroke-linejoin="round" fill="none"/><circle cx="60" cy="60" r="23" fill="url(#hi)"/><circle cx="60" cy="60" r="9.5" fill="#0B0F1E"/><path d="M52 49 L54 55.5 L60.5 57.5 L54 59.5 L52 66 L50 59.5 L43.5 57.5 L50 55.5 Z" fill="url(#hg)"/></svg>
+        <b>Visionary Software</b>
+      </a>
+      <span class="meta" style="margin-left:auto">Product Brief · <a href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/raise.html">Full investor brief ↑</a></span>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<main>
+
+<section class="cover">
+  <div class="wrap">
+    <span class="eyebrow">Visionary Software · Product Brief</span>
+    <h1>Serato and djay, playable <em>by ear.</em></h1>
+    <p class="lead">AccessBridge lets a blind DJ run Serato DJ Pro and djay Pro entirely by ear — no sighted help, nothing to set up. It's Visionary Software's launch product, the proof the whole company's method works, and it's in testers' hands today.</p>
+    <div class="cover-meta">
+      <span>Product&nbsp;&nbsp;<b>AccessBridge</b></span>
+      <span>Platform&nbsp;&nbsp;<b>Serato DJ Pro, djay Pro, macOS</b></span>
+      <span>Founder&nbsp;&nbsp;<b>Leroy Abraham Junior</b></span>
+      <span>Status&nbsp;&nbsp;<b>Shipping today</b></span>
+    </div>
+    <div class="cover-cta">
+      <a class="btn btn-primary" href="#gap">See the gap</a>
+      <a class="btn btn-ghost" href="#watch">Watch it work</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule-grad"></div>
+
+<!-- 01 THE GAP -->
+<section id="gap">
+  <div class="wrap">
+    <div class="kicker"><span class="no">01</span><span class="eyebrow">The gap</span><hr class="rule"></div>
+    <div>
+      <h2 class="h-lead">Built to be seen. Impossible to hear.</h2>
+      <p class="lead sec-intro">Professional DJ software was designed entirely around the eye — a screen full of waveforms, meters, and crates. For a blind DJ, that design choice is a locked door.</p>
+    </div>
+    <ul class="points">
+      <li><b>Two elements out of a hundred and twenty-four.</b>That's what a screen reader can read across Serato DJ Pro's whole interface — decks, effects, the library, the crates, all of it silent except for two controls.</li>
+      <li><b>It used to work, then it didn't.</b>Serato was screen-reader usable through version 1.7. The 1.8 interface rebuild broke that access outright, and in the years since, it has never been restored.</li>
+      <li><b>A blind DJ can't map a controller by sight.</b>Every knob, pad, and fader on a DJ controller looks the same by touch alone — without a way to hear what a control is, hardware itself becomes the wall.</li>
+      <li><b>djay Pro fares no better on its own.</b>Its accessibility tree publishes only what Apple's system happens to expose, which stops well short of what a DJ actually needs mid-set: live effect state, deck timing, the crate you're standing in.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 02 WHAT ACCESSBRIDGE CHANGES -->
+<section id="fix" class="band">
+  <div class="wrap">
+    <div class="kicker"><span class="no">02</span><span class="eyebrow">What AccessBridge changes</span><hr class="rule"></div>
+    <div>
+      <h2 class="h-lead">Reads from the inside. Drives from the keyboard.</h2>
+      <p class="lead sec-intro">AccessBridge reads Serato's live internal state directly — decks, time left, key, BPM, cues, effects, the crates — read-only, no screen capture, no fake clicks. djay it reads through the Mac's own accessibility system. Nothing is guessed, and nothing claims a state the software never actually reads.</p>
+    </div>
+    <div class="figs">
+      <div class="f"><div class="num">2 / 124</div><div class="lab">Interface elements a screen reader could read — now all of it, spoken by ear.</div></div>
+      <div class="f"><div class="num">37,000+</div><div class="lab">Lines of Swift &amp; C++ shipped, guarded by a 719-test automated suite.</div></div>
+      <div class="f"><div class="num">200+</div><div class="lab">DJ controllers named automatically on touch, zero setup, across both hosts.</div></div>
+    </div>
+    <div class="trip" style="margin-top:40px">
+      <div class="c"><h3><span class="i">i.</span> Reads from the inside</h3><p>Decks, time left, key, BPM, cues, effects, the crates — read directly from Serato's own live state, and through the Mac's own accessibility system for djay.</p><div class="hr"></div></div>
+      <div class="c"><h3><span class="i">ii.</span> Names the hardware</h3><p>Every knob, pad, and fader announces itself the instant you touch it — zero setup, in both hosts, across 200-plus controllers.</p><div class="hr"></div></div>
+      <div class="c"><h3><span class="i">iii.</span> Speaks, and drives</h3><p>One clean voice through the screen reader the DJ already trusts — and it drives back: load a track, set a cue, sort and search the library, jump a beat.</p><div class="hr"></div></div>
+    </div>
+
+    <div id="watch" class="vlead">
+      <video controls preload="none" playsinline poster="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD//gAQTGF2YzYyLjI4LjEwMQD/2wBDAAgICAkICQsLCwsLCw0MDQ0NDQ0NDQ0NDQ0ODg4REREODg4NDQ4OEBARERITEhERERETExQUFBgYFxccHB0iIin/xAC4AAEBAAIDAQEAAAAAAAAAAAAAAQUEBgMCBwgBAQEBAQEBAQAAAAAAAAAAAAABAgMEBQYQAAICAQIDBAUGCAwFBQEBAAABAgMRBBIhBTETQVFhBnEigZEyFKFCFtKSVVKxI9EHFbNywTXwdOFic1QzslM0gpOiF/GDQ4TTJBEAAgIBAwMCAwUGBQMFAQAAAAECEQMSMSEEE1FBYXEikTIFgdGh8BSxQlLBcpLSQxWTNOElsmI1JDP/wAARCAFoAoADASIAAhEAAxEA/9oADAMBAAIRAxEAPwD4uADucgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACMBkAKQAAEKQApAAAACAgABQAACAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO4AFIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARkKQAAAAAEAAAAAAICAAFAAAIAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAKAAAAAAAAAAAAAAAAAADuABSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEIUgAAAAIUgAAAAABAQAAoAABAAAAAAQAAAAAAAAAAAAAEAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdwAKQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhAAAAAAQpCAAApQAQhAAAUAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAgKACAoAICgAgKACAoAICgA7QAUgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICAAAAAAAEAAAABCggAAAAAIAAAAAAAAQAAAAAAAAAAAAAAAAoBAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHaACkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAACFIAAAAAQpAAAAUAAhAQAFAAAIAAAAAAQpAAAAAAAAAAAAUAhQAAAAAAAAAAAAAAAAACAFooIAKKCACiggAooIAKKCACiggAo7gAUyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ7atPfepOqqyxR+U4QlNR/jbU8e86jkvItfpNJVKN85Rb1enshtnOG3ZC3Fk9izOqM3FTjlNp8DUUm+XRyzTljg5RjrfHBxo7rdNqNOk7abat3TtK5wz6tyWfcRzcr98tvGzc3H5PysvHl4eRm/SG6jUamVlNlFkZ22yTrvvtk1J5TnC1KNfqhwFKm/BHkkskI6eJJtvw16GBhXOzO2MpbU5S2pvbFdZPHRLvb4HnByTkOt0WhhZLUWTTvsrolGuKk/m7Uu1c9zXsSzFPGZez0MAlGq9JSUowswprpKMZfKXk1xK4pJO99/YRySc8kdDSjWl81Ljn6MltF1DStrsqbWUrISg2vFKSXAldNt2ezrss2rMtkJS2rxe1PC82ch57q6bozhDUw1TnrtRqIODnJVU2JJQzOMcOTWXGPBYOvkmqqqhZVdfVVVK2qyeZ6im5bFJdpTZQnmUU3iufBvDGlaqvjyY70+x3NHzX9n5tr3SqzjoPdm3fLa247pbXL5TWeDfnjqeDB6TYq0up1CbqoutSeG665zSfg3FPidLjJS2tNSTxtxxz0xjrnyMlyzVfNlq07ZVqekvhBKUlmyW3alj63DgzQpni+uUn0shJt8frJtstKl77nNSnqyWlUUtO9u1+2x4lXZDjKEo4k4vMWvaXWPH6y711R2U6bUajPY022469nXOeM+O1PBneda7SauqaoUIP8AeGqtajKyXaQnGG272+m/HRY9ROUX0Q0OqqssojOV9E4xuvv06cYwtTanQnJtOS9l8OJrQtVX+Jz70+zr7bT1JaX6K6vg450BX1frZ5OZ6T1tk4uWHtTSbw8Jvom+izh4PPUzGh7K3QavTy1FFE53aace2lKMZKtWqWHGE+K3IxOMSxldcZ7uvX1d5pqq9zEZ6pTVVpdevKpO/wBvB23abUafHa021bunaVzhnHhuSydShNpNRk05bU0nhy/JT/K8upmudTjNaPbq6tTs01dUlCyye2yGdze+MeDysPvwdvI9XpqI2x1M1GNU6tZSnl776NyVawnxmper2S6Vqq/xOPen2Vk0W/WKT81wnycfcXFuLTTTw01xT8Mdc+R226bUadJ203Vbvk9pXOGfVuSz7jzGblapzfFzUpPzcstmd9IrqNRqZWU2UWRnbbJOu/UWyak8pzhclGvPhDh3ESWlvwdJTkskI6eJJtvw1XBx0FPUHtnF5xiSeWspYfXHfjwMnUtlNtO3tK7K9yzHfCUdy8VuSyvUdlOk1OoTdVF1qTw3XXOaT8G4p8TN881NGqhCavhZdK62dips1E6NslHFmzUL9FZJ5zCDaSXcaXK9V82WrTtlWp6S+EEpSWbJbduMfW4cGdNK1VfHk86y5JYdah839LT818TFuLi2pJxaeGmsNNdzT6Msq5143RlHclKO5NbovpJZ6p9zXAsErLIqc9qlJKU5Z4ZfGT7+HVnI+fa3Q6+uqWnsm3RZZRGNkVF/N8J1OG1v2ItSSziXtdDKVpu9tvc3PJKOSEdLaleqSuo+PqzAVaXU6hN1UXWpPDddc5pPwbinxOlxlGTi0008NNYafg11z5GU5Zqvmy1adsq1PSXwglKSTslt2pY+tw4MxsJfpIyk/rJtv18WKVL3KpT1TTSqNad7dr9tjst02o06TtptqUunaVzhnHhuSydByL0iuo1GplZTZRZGdtsk6777ZNSeU5wuSjXnwhw7jjokqdEwzeTHGTWlvdeAADJ1AIAWikAAoAAFAAAAAAAAAAAAAAAAAAAAAAAAO4AFMAAAAAAAAAAAAAAAAAAAAAAAAAAgBQfTtL6CaLU6Wi56vUxlbTXZjbW4qU4J+GcJvxPn3MuX6jleqs018cSh0f1ZxfScX3xf9h1nhnjSbXDPH03X9N1c5QxzuUd004veuL3NIh9L0/oPortBXqXqtSpT08bnFKvCbr3Y+TnGT59oNDqOZaiGn08N9k/ckl1lJ90V3sksU4abX2tq5Lg67p+oWRwlxi+25LSlv5+BqA+p6X9n2mUV851Vs596pUYRXqc1KT9eF6jzq/2fUOD+a6q2M+6NyjKD8m4KMl68M6/umar0/has8v8AzXQatPcfx0S0/Wj5cDN6Xk1j5xVy3VqdMpWbJuOG0tralBvg0+5+Bzz/ANP9B/m9V8KvumIdPkyXS2dO3XJ36j7x6XpnFTm/njqjpTknHzaPlBD6v/6faD/N6r4VfdOO+knoxpuSaWq6q+612XKtqxQwltbytqXHgan0uWEXJpUt+UYxfevSZ8kccJycpOktLRwoH1Cz0D0MNPO351qcxqlZjFWMqG7Hyeh8zpj2tlcHwU5wi8d25pGMmGeKtVfNtyejp+sw9UpvG29H2rTX8TrB9M1/oPotJpNTfHVamTpqssSarw3CLaTxHOOBxz0Y5BRz2WpVtttXYqtrs1F537uu5PwNPp8inGFK5bc+DnD7w6aeKeVSloxtKT0u7fscWIcm9J+R08iuorqtstVtcpt2KKacZYwtqRyfS+gui1Okpu+d6iMraoWY21uKc4J+GcJvxIumyylKCSuO/JZ9f0+PFjyyk9OS9L0v09vQ+ZA3eY8v1HK9TZp744lDo/qzj3Tj4xf9hz3T+hGiu0Fepep1ClPTxucUq9uXXux8nOCQwZMjkkuY7p8UdMvV4cMYSlLjJ9lpXf0PmpDb0Oi1HMtRDT6eG+yfRdEl3yk+6K72fRtL+z/TqK+c6u2c+9UxjCK9TmpSfrwhi6fJm+yuPOyGfrMHTUskqb2SVv40j5cD6jqv2f6dxfzbV2wn3K6MZxfrcFFr14fqPnOu0Oo5dqJ6fUQ2WQ696afSUX3xfcxlwZMP2lS87oYOrwdTaxytr0ap/GmagBzT0b9GNNzvS23W33VOFrrSgoYa2xefaTeeJnHjlllpjv8AQ6Zs0MENc20rS4V7nCwfVPsBof8AN6r4VfdMPz70S0vKeXz1VeovslGdcds1Db7csfVSZ3l0WeEXJpUlb5R54feHTZJKMZO5Ol8r3OBg3OX6OfMNZRpo9brIxz4L60vdHLPpH2A0H+b1Xwq+6c8XTZcybgrrjejrm6rD07Sm2m1fCbPlYNzX6Seg1l+mn1pslDPil8mXvWGcj9GvRzT87ovstutqdVkYJVqGGnHOXuTMwxTyT0JfNzw+Ntzc80MePuSfy8crnfY4gDPekHKK+Ua6OmpnZburhNbktzlKUlhKKXhwOU6D0EhZpq56u+6q6SzKutQagn0i3JPMvyu7PA3Hpcs5yglzHfnhfiYl1WGEIzcuJ/Z45f4HzgGe1vL+X180p0Wlvtui7YVW2y2Y3SmotV7Vh7e9vg2c1foDof8ANar4VfdLDpMuRyUael0/mVX/AHE+qxY1Fy1LUrXyvY+WA+pfYHQ/5rVfCr7pxTm3IaOXc20uihbbOF/ZbpyUdy7SxweMLHBLhkuTo82JXJJK0t1uxj6vDldRbbpvZ7I4uD6l9gtD/m9V8KvunTd6A07f0OstUu7tK4yj79u1r6Tb+7+pX8q/zIyuu6d/zP8Ays+Zg3+Y8t1PKtQ6NRHEksxa4xnHulF96+ld5oHjlFxbTVNbpnrTUkmnaezAAIUAAAAAAAAAAAAAAAAAAAAAAAAAAA7gAUwAAAAAAAAAAAAAAAAAAAAAAAACPoU8voAfojljS5do/wCrUfwcTG+kPIqueaTbwjfWm6LPB/kS/uS+h8Tc0v8AMtX9Rj/AHDfQ70l7WNfLtXP20saa2T+Wl/8AVJ/lL6j71wPrylCowltOJ+BwYeovN1WB/N0+W2lvTb591xyvBzXTVzp5VXXNbZw0ihJeEo04a+Jwb9ntENmt1GPazVUn4Rw5P4vHwPomo/0Lf8Oz/Yz5b6Bcxro1F+jsko/OFCVWeGbIZTh65RfD1GZ1HNhvxJfkejpNeX7v69xXLljk0vGptm76c811mnvo0lFs6YOrtZuuTjKbcnFJyWHhbenizs9Bua6vVWanS32zujCuNtbsk5Sj7W1x3Pjh5Tw+mDKelPo1dzqdN+nnCNtcXXKNjcYzjnKxJJ4abfVYaZ79FfRu3knbW6icJXXJQUa8uMIJ5+U0stvywsGVDL+86udP6VWx6e/0X/ELHcO7W1fPr1fauvHr4ML6dqWl1HL9ZTJ1XLtIb48JLbhxefLdL4mL9F+c8z1XOdNVfrNRbXLtd0JzzF4qk1leT4nr075lVqtbTpq5KS0sZdo1xXaTxmPriks+bwYr0P8A590n/wA38DM4Tn/+r5W61xunx6WfRwYf/SbyQWpYcjWpJtLlrflH0b0w1ep0XKe109s6Z9vVHfB4lh7srPgz5Hquacw10Yw1OquvjGW5RsllKXTPrwfVPTr+Zf8A9NP5pnxwvWSfdq3Wlcehr7kxwfSanGLkpz+ala4Xrufox19rp3XnG+rZnw3Qxk4LV6AaeqcJ/PrnslGWOyhx2tP8s5xbKUNHOUXhxolJPwarbT+J8Y03pRzyd1MZa61qVlaaxXxTks/UPV1EsUXDuQcvFen6o+X93Y+ryRzdjLHGk/nTV3w//iz67zn+a9d/Vr/4NnBf2e/L1/8AFo/PM51zr+a9f/Vr/wDYzgv7Pfl6/wDi0fnmXJ/3WH4S/ua6b/6zq/8AHD+KOj9of/NaP/As/wB59E5Zw5do/wCrU/waPnf7Qv8AmtF/gWf7znum/mWr+ox/gCYuOpz/AARvqFfQdEvLl/E1PSHkdXO9LtWI31puizz/ACJf3JfQ+Jv6audPKq65rbOGkUJLwlGnDXxOF+h/pJ2sYcv1c/bSS09kn8tf8KT/ACl9R964H0DUf6F3+HZ/tZ2xPHlTyx3lGpfh5OGeGbp5R6fI7jCeqD9n49vb0Z86/Z7p4bNbqMe3mqpPwjhyfxePgdnppzLWw1el0OmtnSrIRlJwk4Ocp2OEU5LiorH0mj6A6+uq+/Rzkk71CyrP1pwTTivNxeV6jknpL6O381u0+q0tkIX0JLFmVGSUt0WniWHF+KwzzQUp9Glju75S335Po5HHH96SlmpRcflcuY/Z4fws1eUaL0p5X2kZ/N9ZCWNsbtVP2Gu+MuzlLD8Ohxj0zeunqNLPWafT0TdU1HsbZW7oqX1nKEcYb4es+icm0/OalZLmeqrvcsKFdcYJQ8ZOUYQy30x0Rwv9oX+voP8ACu/3xLnhp6V85EuPlm0/X9vUdJl19ck1hbalc8aaT+X05r9D54fWPQH+bdR/WX/BwPk59Y9Af5t1H9Zf8HA8vQf/AN18JfwPofef/ay/xR/ibfOeS8412sd2k5k9LU4Qiq990cSS4vEPZ4nCPSHQ825ZXTDV8wnqoXuXsdpbKOa8PMlZw7+BmvSn0g5py7msqNNf2daqqlt7OuXGS4vMotnC+Yc41/NFD53d2vZbtnsQjjdjPyIrPRdTr1U8N5Eu5rv+p6d+eL/scuix9RpxSbxdvSnWla6rjnTv+Jyz0D0Haam/WSXCmPZQ/j2fKfujw/6jm8ebRlzyfLuGI6VWf/Juy4/9tpnj0b0P7t5Tp4S9mc49tbnh7VnHj/Fjhe46Ir0cWu+frU6X5y232nzvvcdvye02428MYwezDB4cOJJxi7Up26tPdL9Dw58kc+fNJqUkouENKumtm/bc4j6eaDstVRrIrhfHs5/x6+j98H/4mV9AP+U1n+PD+DM/6S6D948p1EIrM4Ltq/41fHC9ccr3nH/2f/8AJ6z/AB4fwZjt9vrk/ScZS/GuTv3e593NPeEox/C+Dks+T03c2/eNuJuuqFdMMcIyTk3Y/PjiPh1MX6X6/WaHly+bppXS7O25PjVFrovBz6bu71s1/Sf0mu5RdXptPXF2NRtnOfFbNz9iK8ZYeZPouhyGEtLzzlyeN9Gqq4rvjnqvKUJfSju3DJ3sWOWme7fu/wBqZxip4+zlyx1Q4UV7L9rXk+Jcq/nHR/1mn+EifdtdRZqtNdTXbKidkXGNsc7oPPylhxf0o+Lx5fbyzntGmt6w1VOJd04OxbZrya+ngfZ+YVX36W+vT29jbOLVdvH2JZ68OJ5/u+LWPNFp2nTWz22PZ18lLJhkmqatP03XJxT7L80/Hur+Fn/9zg/6ePP6ar77NTKjWV1KyxttqFq/Kcml34ycy/cPpP8Ajr/yt+6cX1PLNTyvnehjqbo6iy6+m6U47uLd2Hu3JPLaycc8KUGsWTGlONuUrW/H8zO2CduaeXHkel0oxp/+1H0vn9s6eU62dcpQnGpuMotxlF5XFNcUcJ9D+c66/XvS332X1zrnJdpJzcJQw8qT44aymuhz7muklr9BqdNCUYSug4KUs7U8rrjicd9HvRZ8n1EtTddG2zY4QUItRipdW3Li3wwuB7s0M0uqxSjelfad8bvdHkwzxLp8kZVqf2VXOxrenlEZaHTXYW6u/Znv2zg218Ypnyw+jenfMa5Ro0UJKU4S7a1L6vstQi/N5bx4YPNPoPRbpYX/ADy1OdMbdvZRwsw3Yzu9x4eqwy6jqcnaSelR1cpc0e7pskcGCHcbWpvTw9j52AD5h7wAAAAAAC4GACAuBgAgLgYAIC4ABAXAwAQFwMAEBcDAB2ggKYKCAAoIACggAKCAAoIACggAKCAAAgAAAAOTw9L+cwojp1bV2ca1Ul2MM7FHbjPjjvOMpuLTTaa6NcGmu9PxIDTnKW7brazljwYsOrt44Q1cy0pK/icp+2XO+z7N31yW3Y26YOTWMcXji/M4sm1hrhjo+9ACU5S3bdeRjwYsN9vHCGrfSkr+NHJ9L6Yc60sFDt43JcF20FZL8LhJ+9smr9L+dauDg9Qqovg+xgq21/G4zXuaOMg13slVrlXxOf7l0urX2MWre9CBt6HXX8u1MNTQ1GyG7a5RUl7UXF8Hw6M0wc02naPQ4qSakk01TT2a8Ge5j6Scz5rR831Nlcq90Z4jVCD3RzjiuPeYEA1KUpO2237mcePHijpxwjCO9RVKzlEvTHnU63W7atsouD/Qw+S1jw8DjMJOuUZR6xakvWnlHkglOcq1Sbra3sTHhxYrUIQhq30pK/icm1HpfznU02U2W1OFsJQmlTBNxksPDS4GO5XznXcndj0s4R7Xap7oRnnbnGN3TqzFAry5G09UrWzvlEXTYVBwWKCjLeKiqdeUZPmfN9Zzidc9VKEnXFxjthGHBvL+T1MlD0t5zChUK2rs41qpLsYZ2KO3Geucd5xoBZZpt6nb3d8sr6fC4xi8UHGP2VpVR+HgJuLTTaaw01waa70zk/2x532fZu+uS27G3TByaxji8cX5nFwSOScL0ycb3pmp4ceWtcIzrbUrr4FjJwalFuLi0008NNdGmuKZyjT+mXO6IKPbV3Jd9tcZS98ltb95xYCOScPsycfgyZMOPL9uEZ1taujkGs9KOca3CnqNkU1LbVFVxbi8rdt9prPc3g0+Z841vOJVy1U4TdSko7YRhhSeXnb16GLAeWcrucne9vehHBihWnHGOm6qKVXuDNct9IOY8pqlVpbIQhOe97q4ze7CXV+SMKCRnKDuLaflGp445FUoqS8NWjd5hzDU8z1D1GolGVjjGOYxUViPTguBpxe2SfDg0+PFcPFd6ICOTbtu35KoqKSSpLhJbUcmu9L+dX1TqldVtsjKEttMIvbJYeGlw4HGMIoNTyTyVqk5VtbskMUMV6IKF70qs5PD0w51XCMFdU1GKis0wbwlji2uPmaHLuf8w5VG2OmnXBWz3zTrjL2unDPReRhga72W09crW3OxldPhSa7cKe6pc/E3+Y8y1XNb1dqZRlNRUMxioLam2uC4d5t8u9IeZcqpdOmtiq3Jz2zhGeG+uN3TPejCgysk1LUpNSfrfJt4sbioOMXFbRrj6GX1vPNdr9RRqLpVO3TtOuUaoxfCW5KWPlJNZSfmZP7ac8/41P8A2K/1HFQaWfKm2pyTe/O/xMvBiaScI0tuNvgcr+2nO/8Ai1f9iv8AUYnWc612u1VOqunCVtG3s2oRiltluWYrg+JigJZ8slUpya92I4cUXahFP2SOVfbPnf8Axqv+xX+o17vSznd8dr1OxP8A4cIQf4SWV7mcdBX1Gd/7k/8AMwsGFf7cPoiylKbcpNybeW2222+9t8WzkkPS3nFdUao21bIwVaXYwztUdq448DjRcGIZJwvTKUb3p1ZuUITrVFOtrWxAUpk0TAKAUAAAAAAAAAAAAAAAAAAAAAAAA9kABzABQCAFAIUEAAKQAAAAAAApAACkLhjABAb3L9JDWXuE7HXGNV1spRhvliqDm0ouUE28eKMvX6PxsjZYrdTbBLTzr+b6XtbJw1EJTUpQdsdm3a4y4vibUJS5Rxnnx43Um0+PR+v6HGgZeXL9PXTU56hwuvgra6nU2nXK11rNik8WPDlt27cLG7I5ryv91TVVk5Oxysajtx+hjJxhZJ54OxptQWcLi3xJoaVlWfHKSiny7pU+a3a45S8mIBlOW8s/ePbYs7Ls4exmO7tLZZ2UrisOe18ePQxfDxI06T8m1OMpSinzGrXi9iAuAQ0QHZ2VnZ9rsl2e7Zvw9m/Gdu7puxxx1wdYF2AAuLS4LPe+i9fkQEBmNTy7S6a7Tp6zdTdQ7u2jTLrGc4ba4bsy3Sh7Dk4J5y8GxXyLfr5aZ37K1Gt9q68S3XV766nXu4Wdd0d3sqLZvRI4/vGJK22lpcuYy2Tp+m9+m5p8t5hToO07TQ6XW79uPnCk+zxn5O1rrnj6jJ/aDSfiLlX4Fn3zjdUJXThCPypyjGPrk8IyvMuVfMK42RtlbHtZUy3VOr24rO6HtS3VyWdsuD4cUajKajxsvZf3Ryy4emlkWtPXPb58iuv8Mkkb32g0n4j5V+DZ94faHSfiLlX4Fn3zV5Tyb96V2T7S2Gy2qr2Ke1S7SMn2lr3w2Vx2+1LD69Dur5B2ulruV1mZ1K3PYPsNvzjsdiv38bPrRjtWUbTytXx9I/kcJY+hhJxlqTTSfz5t2r/qOz7QaT8Rcq/As++PtDpPxHyr8Gz75rc25J+66lP5xG7dfOuCjHGa1HMLX7Tw58fY7sdTAmZZMkXTr6R/I6Y+m6TNHVBSa89zKtvjM5P9odJ+I+Vfg2ffH2h0n4j5V+DZ984weoQlZJRinKUmoxilltvgkkurZnuz8r6L8jp+5dP/AEy/6mT/AFnJftBpPxHyr8Gz74+0Gk/EfKvwbPvHGpRlCUoyTjKLcZRaw01waafRo8juz8/ovyH7l0/9Mv8AqZP9Zyf7Q6P8Rcq/As++PtDpPxFyr8Gz75xgzHL+US19Ft6s2QonFXS2uSrq7Oc5W8HltbcKP1m+qKsmSW1fSP5GJ9L0mOOqSklwr7mX12/nN/7QaT8R8q/Bs++PtDpPxHyr8Gz75qz5RXXoadW56twtjv3R0qlVCPbOvE7e24Swt23b1aWTX5jyx8ujHfapSsnLslFcJ6dJbdRnPBWN+ysdz4mtWVePpH8jMcPRyaSU7baXz5uXHf8Am9PUyP2h0n4j5V+DZ98x3MeZU66Nar5fpNFsbbenUk55XSW5vgu47eU8o/ekbH2s4bJ1wxCrtWt+79LZ7cNlMce1PjjPQ6nytrlz1napyVmOyS607+z7dSz8ntPZxjzI3klH232XobjDpMOTjUpxko8yyPmS43k0YkAHE94AOyymyrbvhKG+KnHcmt0JdJRz1i+59ASzrAAKAd2nhTZYldb2MMNymoOx8FwjGKazKT4LLS8Wb2q5ZOjU20wshNVUxvbm1TLZKEZ7XCUv9VKWHWm3noXS2rMPJGMtLdOr2dV8dvUxZcGTegrXLlq43qc+1hXOmMH7HaKbjmbfGfsPMUuCa4l1/LvmNOmm7VOdvaKyCX+jOtxzDdl7mty3cFiWUXS/0sizQbSvlylFKnvFW/T9djGA2oaXfpL9Rux2NlNe3Hyu1U+Oc8MbPDjkyUuTqOgp1W7UvtoKfs6fNEM3OvbO7tVh8M/I70VRb+liWbHHd/zadnvV/wADBg5HquSafR6yvTW262G+11KyWjjGEpblFOvOo9uDby3wwscDDa2inT6idVVk7VXJwcp1qt7oyaeIqc+HDg8+4OLW/wACQzwyNKNu46lw6q632NUDBTJ1ICgAmBgoAJguAAUYGAAAAABgYAAJgYKACAoAKC8PAZ9QOZC4YyyAFx5jgQAF4DPkiAAufJDPq+BAAXPq+Az5IgALn1fAZ9XwIAC5Yy/EgAAAANvRauWiu7RQhZmFlcoT3bZRsg4yT2SjLo+5o3v31OUbIWabT2VzdO2t9tCNSohKEIw7O2MsKMnnc3l8TCgqnJKkzlLDjm7lFN8c8+hk/wB5zdEKnTp5OtbK7ZQbthWrO07OLctuFLOJbd6TayedZzK7XJ9qoN9tbdGSzuj2zzKtNt/o93tJPLTzx4mOA1S8lWHGnaik07vxfgymh5vq+XQ26eSrzdC6UkuM9iwq5f3OL4dePUx1k+0snPCjulKW2PyVl5ws5eF3HgC3VehpY4Rk5KKUpbv1fxAAIaPfaT27Nz253bcvbu6bsdM44Z6nngQhBRR8GQApnVzrFmmsWh0a+axcKl+nklFuTXyr3xjKTlF9UyU881mlv7WiFdUXPtZVbXbCVmNrm5XOy3c+9qaMGDeuXlnH93w7aE7Vc2+Lv1b9Ta+cT2Y7OCs7btu2UcW5/JTXsqGfawo9TY1vMLtbFRdVVUe0ndNVRku0umkpWS3Slx4cFHEVxwjGAmp+TfbhaelWtn4syug5lboISjGmm3Ntd8e07T2LalJRktlkM43PhLKZ128x1Nz07k1//nxtim1GTVsrd0o7sZ3SfRLgY4DU6q+CdnHqctK1Pd/hX8Dev1l2ornXPbiV8tR14qUljasyfsruRpYf9GiAjdm4xUVSVF2vwKnKLTWU08prKaa700eQQpZNybcm228tvi2/Ft95C5Yz/TgAQyGj5nqNDDbVtx21d7ym9zhGcNklnDhKM5KSfU0M+oZ8l9P6yp1sZlCM1UkmvDMjdzJX6eFEtLQuzi4V2J3b4QdkrNqXa9m8OTScot4NTU6qep7HckuxphRHGfk15w3lvjx4nRnyX9PeM+r4Fcm/URxQhtGqbf4vf6mS0HNbdBBwjXTau1hfHtFP2LYJqM04ThnGfkyzF+B3y55rrKZUPa6ZUul1bcQy573bwfCzf7WenkYbLINckqtmX0+KUtThFu7v3XqXA4eJAZOxeB6lZOeNzctqUVlt4iukVlvCXcjwCgu5+XwQ3Mh6ANvQ6x6LURv7Oq5wztjam4ptcJey4vdHrF54M92a2Nlttnzaj9LCUWn2k9spdboysslPtPNya8jRBdTqjDxwctTXNVdvbetzKU80dGl+bx01Gd8Le2/S9p2te7ZZ/q9nmO5pLbtfemedZzbVa+muq9wkq52TUowhCTlZjO7bFf29+TGFGuVVZOzjUtWlar1Xu7fFq9jIaTXx01VtMtPVqIWyrlKNvaLEq921p1WVv6z7zsnzFW6eqqWnpzTHZXb+m3xj2jsxjtuzfGTXGLeDGAuqQeHG3bjzd7veqvfxwbtmsnbrHq5bd7u7fbh7N2/fhLOcZ8+hr3WdtbZZLrZOU3hcMyk28ZfTidQJbZpQjGqVUtK+HgvDz+H9o4eZAQ2Xh4fSM+RAAXPkhn1fBEABc+S+Az5IgALw8Bw8yAAvAY8yAAuPNFx5o8gAuPNDC8SAAvDzHuIAAUgIcyggAKCAAoIACghSgAgICggAAAAAAKUAAAAAEAAIACAFAAAAAABAAAAAAAAAAAAAAAAAAQAFQAAKAAAAAAAD0AACFABQQAoBSgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5gAAAAAAAAAAAAAAAAAAAAAAEAAAABAClIAAAAAAAACAAAAAAAAAAAAAAAAAAAgAAANAAAAAAAAoBQQoBCgoAABSgAAAAAAAAAFABClABAAAAUgBSFAAIUAEBQAQFABACgHkEBDBQQAFBACFBAAUEABQQAFBAAUEAKAAAAAAAAAAAAAQAAAAAAAAAAAEAAKQoAAAAAAAIACoAAFAAAAAAKUAoIUh6IAAClAAAAAAAKAAUAAhQAAAACFAAAAABAUAAAAAEAKAAAAADwACGAAAAAAAAAAAAAAAAAAAAAAAAAAQAoIAAAAAAAAAAAAAAQAAAAAFIUAAAAAEAAABoAAAAAAFCKUEKQpAEUApQAAAAAAUFAAAAAIUAAAAAhQCFAABCgAAAAAAAAAAgAAKAADwCAhgoIACggAKCAAoIACggAKCAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAABQAAAAAQpAVAAAoAAAACAKUEKUoQKQgABSgAAAAAFKQAFAAABAAUAAAgKACFAAAAAAABCgAAAAAAAAAAHWACGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAoIAAAAAAAAAAAAAAAACgAAAAAEKQFQAAKAAACkPQBACgFABSgAAAAAAoABQAAAAAAQoAICgAAAAEKAAAACFAAAAAAAAAAAAAB1ggIYKCAAoIACggAKCAAoIACggAKCAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAIAAaAAAAAAB6PJ6KAQoRAUAFKAAAACgFIUAEBQAAAAQoIAUAAAAgBQAAAAAAAAAQoAAAAAABCggB1gAhgAAAAAAAAAAAAAAAAEAKAAAAAAAAAAAAAAAAAAAAAAAAAAAUhQAAAAAACAAGgAAAAACooBSgpCgAAAAAAFKQoBAUAAAAAhQAQoAAAAAICgAAAAhQAACAFAAAAAAIUAAAAHUAdtdFlvyY8O9vhFe9kObaW51AyEdJBR9qTcvFdF8Vl/QeKdNBufabsR9lbcZb8eKfBLjjvya0sz3I8+xpA92Qdc3F93f4rufvPUKbLIylFcF59fV4v1GaNWqs6ge41zs+TGUvUm/wAx2PTWqOXFryeE/wAHqWhaXqjoABCgHbOmytJyjhP1PHrw+HvOoETvYAYNqrSynhyahH4yx5R/XgtBtLc1QbV2nUXHZnDeOPHj60l1PN9HZYabafB57mKZFJOvc1wD2q5uSjteX3ENHgHucJVvElh/08ODPUqLYQ3yg1F8M/r717xyS15XJ1AHuuudrxCLl6ui9b6L3gux4BcPOMPPh3hpxeGmvXwAID0oyl0i36kzbr0vDM37l/KypNmXJR3NIGxCiUpSj028M/mOhrDa70QqaZAe4QlY8RWcLJ7ronam444ePDL8F5imLS9TpB7hXOyahFZk+79fh5tiyudMnCaw17/emuDXmgLV16ngp6jCck2oyaXVpNpe9HlLPTiCgHpRlLOE3hZeE3hePA8gAh2qmxtJQll9OD4my9JiHXM/L5PqXj6y6WzLnFVyaINqOmcqXZnD6xjjrFdXnPDyXfg1RVG1JO69AD0oSksqLaXVpHuNFk4b4rK+l+pd5A2l6nUVHqFc7G9qbx18vWecOLw1hlLaKAAUIpEUAA246O2Udz2w8pyxL8Hqe3pEq5PLc1l+TS7sdc+f0F0sx3I+TRBt/Nv0O/ju+Vju2/nzjj6jUFUaUlLYqKQ766J2LKx5ZeM+r+3Aqw2ludBT1GE5S2xjKT8Em38ESScXiSafg1h/SQpAEm+ib9SyAAAAADZr0s59WoLzzn4Il2n7KKaluXfwxj6WWmZ1Rur5NcHdKicYKfj1/u+GfWdJDSd7AEOzs57d2148QDwAAAQ9JOXRN+omGAAAAQpUnJ4Sy33HuVNkY7nHC/N611As6il2tLOHjxwVxklnDw+/HAA8kLhljCUs4TePAAhDt7GzONrz58PpfA9S09sc+z08Gn/KWmS15R7+dx4Zg/djh6juhqK7estr8JdPdLp8cGLA1s4vFEzWGjxGSnux9V4fv/pj3GMjdZCO1SaXh+rw9wrtspbcJOLaw2vAusx2nzyvb/ybl18YWJbVLZwb7896T8jsr1FcoZe2txy9q+OYrx8V4+RiwTUzfajSMjDVVY45h5RWV7uPQ7XdVjcrE171L8F8f5DEga2TtR9zulapSb7OHHxTz9DXF94haozT2R92cr1Zb6HSCWdNKMnZfWo8Gp56L72Ua8NRCOM1peLj/In+s1AXUzKxxSrk3/nkfyZfQbNclbHMWn4rK3L/AKephyptNNNpro1waCmzLxKuODKWWKG3PHL+HmeNTJQhxSbb4J+XU0JzlY8ybb8ySlKbzJtvzeS6gsex2xuUdvsR9l5ysnf84g7E8cMY3Y4/+xogzbNuCZkJ6muM1j28d67vVlHa9TTCDae9yWNmH3/l5WMLybbZigXWzHai63/M21qo9pGXY1xS4YgsfDO5fQzdeuquW1uyvwUmpQ/8Yxx+CzDgamV4oPzx7/mZBauCn8l9MKa+X193Dy6nqzWwawlZPwcml9HtP6TGgamO1H3+pkY6uD67l9K/P/Id8ZKSymn6jDnqM5Q+S8BTI8S9DJwnGU5xWMp/E1J3rL9iD9rPFdcGtlkDkVY0mb9eohKbbxDh169PUvhwO6u6FsZP2YbctrKXD8rzb78d5igNTDxpmSq1Vbk4vMFJ/K7v+tJZx73gl+pgmoRjC3b9d8V6ocFw9fBvojHAamO1G75MtVraezSk7a2vq1pOHrXtxaz35z6zretjLPsNerbmX8bCXH4mNKNbJ2oLz9TIVaqtZ3R2d/sLOfXxXH6DphqIwm3sXF93VerP9hqgama0R59zLR1VWNu+a3deHs/9XHPwTPb9ni+mM57seKMMeu0lt2Z9nwKpmOyvRmWjYpVdqliKXHHSLX1fzY9ZoLUJSi+zgseCx8P7TWy8Yy8Pi1ng36uhA5s3HEld/h8DIV6qCi8rbxylFdc/Qdld9bry3GGPq+HqXVmLBNbK8UX5MpHV12cHmHg3jD9eF1+PrOtayMZ5UNyxjLwm/Lin7L70Y8F1sLFE3/ncduOzUfKPCHw6/SzzDVKEcdlD1r+1S4moBqZrtx8fqzehqoxUvYw23wjjDz4/+x1wvUbFLs4pZ6R4P1pvPH3Gqik1MaI8+5moyhYt0bIPyclGXvi3n4ZLuUE5PpFNv3fr6GEOztZ7Oz3PbnOP6fm6G9Rz7PuZSVsXDtO5rdj1/V+PA0YaiMWn2NTx5fm6/Sma++W3Zn2c5x5nkjkbjjSs3/ncdiXZ4/urGz9frO+q2Eop5jHC4pvGMf04GKQJqDxxa8GUhrK97zvgn9ZcW/4yWHj4ks1tbfCHaJJrfZjf17vlYjjuz3mMA1MdqF3z9Tfp1UYJppwTefY/lWUebdXGb/0oS/vWZcn+C1/KaRRqZe3G7/ud8LlD/wCuD9368kjck89nD6eH0nSQlmtKMxXJWr2ePl3r3dTzdPso+1Hq+Ca/p0MUG2+rb9bNauDn2ud+DKyuhCCn1z0XfL8/DxNS3UxsikqaocMZS/N0+nJqgjkVY4r3O/touKXZV8P6ev6Tbeqr2545/J7/ANRjANTK4RZuV6qMG26ovOeK4SWfNpr6EW3VKx/IUv70+MvofQ0gNTHbjd0b1WphFYcduPye/wDl4+JPnMd0n2ceL+V9b3+fmse80ijUx24/szd+dRw8159eMe/geK9Qoda4P1LH58mqBqZdEf2bN6GqguDrjFN5zHr789fdg7paiuMcpqX93x+h+8xYGpmXjjZvz1VbrWI5fD2ZL2Vjw4/Aq1VaS6570l0/kMeBqY7cff6mSetg0+Fj8m017zqr1MEmnFR7/ZXA0SjUy9uNGTWoqbxux5tcCy1FUV8pPyWTFgamTtR9zqABgoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQQFKUgAABSAAAEKCkKgCgAoCKAAAAAAAAVAIoKAACkKQoAAAAIAAACgAAgBSFIAUEKACFIAUAAAEKAQpAACkKAf//Z">
+        <source src="https://jbreeze803-jpg.github.io/visionary-promo-media/Product-AccessBridge.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="vcap"><b>AccessBridge, in motion</b><span>Product film · watch it read, name, and drive Serato live</span><a href="https://jbreeze803-jpg.github.io/visionary-promo-media/Product-AccessBridge.mp4" style="margin-left:auto;color:var(--gold-2);font-family:var(--mono);font-size:12px;text-decoration:none" target="_blank" rel="noopener">Open the film ↗</a></div>
+
+    <p class="eyebrow" style="margin-top:44px">Working today — not a promise</p>
+    <div class="feats" style="margin-top:14px">
+      <div class="it"><span class="tick">—</span><div><b>Reads all four decks</b><span>Track, artist, BPM, key, time left, live pitched tempo.</span></div></div>
+      <div class="it"><span class="tick">—</span><div><b>Names any controller on touch</b><span>Both hosts, zero setup, nothing stored.</span></div></div>
+      <div class="it"><span class="tick">—</span><div><b>Effects, loops, cues, beat-jumps</b><span>Every live effect named in one phrase.</span></div></div>
+      <div class="it"><span class="tick">—</span><div><b>The whole library &amp; crates</b><span>Local and streaming, browsed by ear.</span></div></div>
+      <div class="it"><span class="tick">—</span><div><b>Drives Serato</b><span>Loads, sorts, searches, files and removes tracks.</span></div></div>
+      <div class="it"><span class="tick">—</span><div><b>Warns before a track ends</b><span>A minute out, on the right deck.</span></div></div>
+      <div class="it"><span class="tick">—</span><div><b>Asks for no screen permission</b><span>Reads honestly, or says so — it never guesses.</span></div></div>
+      <div class="it"><span class="tick">—</span><div><b>Speaks through VoiceOver</b><span>One voice, one queue, the DJ's own rate.</span></div></div>
+    </div>
+
+    <p class="eyebrow" style="margin-top:36px">Recently shipped — the receipts</p>
+    <div class="alloc">
+      <div class="alloc-item">
+        <button class="r" type="button" aria-expanded="false" aria-controls="r1"><span class="sw"></span><span class="nm">Full parity under djay Pro<small>Not a lesser mode — the same depth as Serato</small></span><span class="cv" aria-hidden="true">▸</span></button>
+        <div class="r-exp" id="r1" hidden><ul><li>Full console: Decks, Neural Mix, Sampler &amp; Loops, Effects, Microphone, Controller.</li><li>Doubles the addressable platform market to two of DJing's biggest applications.</li></ul></div>
+      </div>
+      <div class="alloc-item">
+        <button class="r" type="button" aria-expanded="false" aria-controls="r2"><span class="sw"></span><span class="nm">A Microphone module<small>Tempo-synced live vocal effects</small></span><span class="cv" aria-hidden="true">▸</span></button>
+        <div class="r-exp" id="r2" hidden><ul><li>100+ distinct presets, a live throw, custom MIDI mapping.</li><li>Evidence the product is a growing platform, not a single accessibility patch.</li></ul></div>
+      </div>
+      <div class="alloc-item">
+        <button class="r" type="button" aria-expanded="false" aria-controls="r3"><span class="sw"></span><span class="nm">Runs your streaming accounts<small>TIDAL, Beatport, Beatsource, SoundCloud, Apple Music</small></span><span class="cv" aria-hidden="true">▸</span></button>
+        <div class="r-exp" id="r3" hidden><ul><li>Sign in and out, entirely by keyboard — previously mouse-only.</li><li>A durable Prepare crate that survives every Serato restart, streaming tracks included.</li></ul></div>
+      </div>
+      <div class="alloc-item">
+        <button class="r" type="button" aria-expanded="false" aria-controls="r4"><span class="sw"></span><span class="nm">Repairs itself on a Serato update<small>No new release just to keep working</small></span><span class="cv" aria-hidden="true">▸</span></button>
+        <div class="r-exp" id="r4" hidden><ul><li>Finds Serato's own internal classes at runtime instead of hard-coding them.</li><li>Every feature, searchable — one list finds and fires any command, Serato shortcut, or macro by name.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 WHERE IT STANDS -->
+<section id="stage">
+  <div class="wrap">
+    <div class="kicker"><span class="no">03</span><span class="eyebrow">Where it stands</span><hr class="rule"></div>
+    <div>
+      <h2 class="h-lead">Shipping today. In testers' hands.</h2>
+      <p class="lead sec-intro">AccessBridge isn't a prototype — it's the flagship, running real tester operations in production right now.</p>
+    </div>
+    <div class="stage">
+      <span class="eyebrow">Proven in production</span>
+      <h3>The playbook the other two products already inherit.</h3>
+      <p>A tester health beacon, an automatic updater that verifies before it installs, a one-keystroke feedback channel straight to the founder, and an 18-chapter narrated masterclass — all running in real testers' hands today, not planned.</p>
+      <div class="igrid">
+        <div class="g"><b>37,000+</b><span>lines of Swift &amp; C++, shipped</span></div>
+        <div class="g"><b>719</b><span>automated tests, guarding every claim</span></div>
+        <div class="g"><b>18</b><span>masterclass chapters, narrated and current</span></div>
+        <div class="g"><b>$0</b><span>outside funding to date</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 WHY IT MATTERS FOR THE COMPANY -->
+<section class="band">
+  <div class="wrap">
+    <div class="kicker"><span class="no">04</span><span class="eyebrow">Why this matters for Visionary</span><hr class="rule"></div>
+    <div class="pquote">
+      <p>AccessBridge is the proof the whole company's method works — find the locked door, build the bridge, own the niche. Everything Visionary Software is now doing to FL Studio and OBS Studio, it already proved here first.</p>
+    </div>
+    <p class="lead" style="margin-top:28px; max-width:72ch">This product brief is one part of the full investor case: the company, the market, and the raise to ship AccessBridge, FLSpeaks, and OBSSpeaks together.</p>
+  </div>
+</section>
+
+<!-- 05 CLOSE -->
+<section class="invite">
+  <div class="wrap">
+    <div class="split2">
+      <div>
+        <span class="eyebrow">Part of the same raise</span>
+        <h2 style="margin-top:14px">One company. <em>Three products, and counting.</em></h2>
+        <p class="lead">AccessBridge isn't a standalone pitch — it's the proof behind the one Visionary Software is making. The full investor brief has the company, the other products, and the raise.</p>
+      </div>
+      <div class="contact-card">
+        <span class="eyebrow">Get in touch</span>
+        <a class="btn btn-primary" href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/raise.html">Read the full investor brief →</a>
+        <a class="btn btn-ghost" href="mailto:breezywonderofficial@gmail.com?subject=Visionary%20Software%20%E2%80%94%20AccessBridge">Start a conversation</a>
+        <div class="row"><span>Founder</span><span>Leroy Abraham Junior</span></div>
+        <div class="row"><span>Email</span><a href="mailto:breezywonderofficial@gmail.com">breezywonderofficial@gmail.com</a></div>
+        <div class="row"><span>Instagram</span><a href="https://instagram.com/breezywonderofficial">@breezywonderofficial</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footrow">
+    <span>Visionary Software LLC — building for the world, starting with the blind</span>
+    <span>Product brief</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('button[aria-controls]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var wrap = btn.parentElement, panel = document.getElementById(btn.getAttribute('aria-controls'));
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      wrap.classList.toggle('open', !open);
+      if(panel) panel.hidden = open;
+    });
+  });
+})();
+</script>
