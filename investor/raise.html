@@ -82,6 +82,8 @@
 
   .products{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:8px}
   @media (max-width:820px){.products{grid-template-columns:1fr}}
+  .products.four{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:820px){.products.four{grid-template-columns:1fr}}
   .pcard{border:1px solid var(--line-2); border-radius:3px; padding:26px; display:flex; flex-direction:column; gap:14px; text-decoration:none; transition:border-color .2s,transform .2s}
   .pcard:hover{border-color:var(--gold); transform:translateY(-2px)}
   .pcard .tag{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
@@ -260,16 +262,16 @@
   <div class="wrap">
     <div class="kicker"><span class="no">02</span><span class="eyebrow">The products</span><hr class="rule"></div>
     <div>
-      <h2 class="h-lead">One method. Three professional tools.</h2>
-      <p class="lead sec-intro">Each has its own full product brief — the gap, the fix, the numbers, in the same depth as this one. Read all three; the pattern is the point.</p>
+      <h2 class="h-lead">One method. Four professional tools.</h2>
+      <p class="lead sec-intro">Each has its own full product brief — the gap, the fix, the numbers, in the same depth as this one. Read all four; the pattern is the point.</p>
     </div>
-    <div class="products">
+    <div class="products four">
       <a class="pcard" href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/index.html">
         <span class="tag">Product one · Shipping</span>
         <h3>AccessBridge</h3>
         <p>Serato DJ Pro and djay Pro, playable entirely by ear. Of Serato's 124 interface controls, a screen reader could read two — now it reads all of it.</p>
         <span class="go">Read the product brief →</span>
-        <span class="stat">37,000+ lines · 719 tests · in testers' hands today</span>
+        <span class="stat">37,000+ lines · 719 tests · Serato DJ Pro 5 complete</span>
       </a>
       <a class="pcard" href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/flspeaks.html">
         <span class="tag">Product two · In build</span>
@@ -284,6 +286,13 @@
         <p>OBS Studio, the software behind most of the world's livestreams, patched at the source to be fully usable by ear.</p>
         <span class="go">Read the product brief →</span>
         <span class="stat">35 patches · 7 console tabs · 15-chapter masterclass</span>
+      </a>
+      <a class="pcard" href="https://jbreeze803-jpg.github.io/visionary-promo-media/investor/mixer.html">
+        <span class="tag">Product four · In build</span>
+        <h3>Visionary Mixer</h3>
+        <p>Run a Behringer X32-family live sound console from plain sentences, with VoiceOver as the voice. Built for a blind engineer to run a full show alone, and fast for every engineer. Fully offline.</p>
+        <span class="go">Read the product brief →</span>
+        <span class="stat">38,879 lines · 460 tests · 3-minute product film</span>
       </a>
     </div>
   </div>
